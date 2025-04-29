@@ -1,1 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samir Poudel - Figures & Diagrams</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Header styles */
+        .page-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(to right, #fff, #c7d2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+        }
+        
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 0.5rem;
+        }
+        
+        /* Card styles */
+        .card-base {
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            transition: box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background-color: #ffffff;
+        }
+        
+        .card-base:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-content {
+            font-size: 0.875rem;
+            color: #4b5563;
+            flex-grow: 1;
+        }
+        
+        .card-footer {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.75rem;
+        }
+        
+        .figure-card img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Icon styles */
+        i[data-lucide] {
+            width: 1.25rem;
+            height: 1.25rem;
+            stroke-width: 2;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.3rem;
+        }
+        
+        h2 i[data-lucide] {
+             width: 1.5rem;
+             height: 1.5rem;
+             margin-right: 0.6rem;
+        }
+        
+        /* Button styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background-color: #4f46e5;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #4338ca;
+        }
+        
+        .btn-secondary {
+            background-color: #gray-200;
+            color: #gray-800;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #gray-300;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .page-subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-indigo-600 bg-indigo-100 rounded-md px-3 py-1 hover:bg-indigo-200 transition duration-150">SP</a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Home</a>
+                    <a href="index.html#about" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">About</a>
+                    <a href="index.html#projects" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Projects</a>
+                    <a href="index.html#publications" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Publications</a>
+                    <a href="index.html#contact" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="index.html#about" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="index.html#projects" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="index.html#publications" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Publications</a>
+                <a href="index.html#contact" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Header -->
+    <header class="page-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="page-title">Research Figures & Diagrams</h1>
+            <p class="page-subtitle">A collection of visualizations created for my research projects</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <!-- Figures Section -->
+        <section id="figures" class="bg-white p-6 md:p-8 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="chart"></i> Research Figures
+            </h2>
+            <p class="text-gray-700 mb-8">
+                These figures and diagrams were created for my research publications and presentations. 
+                Each is available as a high-resolution image and as a draw.io XML file for modification.
+                Feel free to contact me if you'd like to use or adapt any of these visualizations for your own work.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Figure 1 -->
+                <div class="card-base figure-card">
+                    <h3 class="card-title"><i data-lucide="bar-chart-4"></i> Federated Learning Architecture</h3>
+                    <img src="figures/federated-learning-architecture.png" alt="Federated Learning Architecture Diagram">
+                    <p class="card-content">
+                        A comprehensive diagram illustrating the secure federated learning architecture used in our privacy-preserving monitoring framework.
+                    </p>
+                    <div class="card-footer flex justify-between mt-4">
+                        <a href="figures/federated-learning-architecture.png" download class="btn btn-primary text-white bg-indigo-600 hover:bg-indigo-700 text-xs px-2 py-1 rounded">
+                            <i data-lucide="download"></i> Download Image
+                        </a>
+                        <a href="#" class="btn text-gray-800 bg-gray-200 hover:bg-gray-300 text-xs px-2 py-1 rounded" onclick="requestXML('federated-learning-architecture.xml')">
+                            <i data-lucide="file-code"></i> Request XML
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Figure 2 -->
+                <div class="card-base figure-card">
+                    <h3 class="card-title"><i data-lucide="bar-chart-4"></i> Backdoor Attack Detection</h3>
+                    <img src="figures/backdoor-detection-framework.png" alt="Backdoor Attack Detection Framework">
+                    <p class="card-content">
+                        Visualization of our edge-case backdoor detection framework that achieved reduced attack success rates below 15%.
+                    </p>
+                    <div class="card-footer flex justify-between mt-4">
+                        <a href="figures/backdoor-detection-framework.png" download class="btn btn-primary text-white bg-indigo-600 hover:bg-indigo-700 text-xs px-2 py-1 rounded">
+                            <i data-lucide="download"></i> Download Image
+                        </a>
+                        <a href="#" class="btn text-gray-800 bg-gray-200 hover:bg-gray-300 text-xs px-2 py-1 rounded" onclick="requestXML('backdoor-detection-framework.xml')">
+                            <i data-lucide="file-code"></i> Request XML
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Figure 3 -->
+                <div class="card-base figure-card">
+                    <h3 class="card-title"><i data-lucide="bar-chart-4"></i> Cloud Fake News Detection</h3>
+                    <img src="figures/fake-news-detection-system.png" alt="Cloud Fake News Detection System">
+                    <p class="card-content">
+                        System architecture for our serverless AWS solution using BERT/LSTM models for fake news detection with 94.9% accuracy.
+                    </p>
+                    <div class="card-footer flex justify-between mt-4">
+                        <a href="figures/fake-news-detection-system.png" download class="btn btn-primary text-white bg-indigo-600 hover:bg-indigo-700 text-xs px-2 py-1 rounded">
+                            <i data-lucide="download"></i> Download Image
+                        </a>
+                        <a href="#" class="btn text-gray-800 bg-gray-200 hover:bg-gray-300 text-xs px-2 py-1 rounded" onclick="requestXML('fake-news-detection-system.xml')">
+                            <i data-lucide="file-code"></i> Request XML
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Figure 4 -->
+                <div class="card-base figure-card">
+                    <h3 class="card-title"><i data-lucide="bar-chart-4"></i> GAN Educational Architecture</h3>
+                    <img src="figures/gan-educational-architecture.png" alt="GAN Educational Content Architecture">
+                    <p class="card-content">
+                        The architecture of our GAN model for generating educational content, which enhanced comprehension scores by 24%.
+                    </p>
+                    <div class="card-footer flex justify-between mt-4">
+                        <a href="figures/gan-educational-architecture.png" download class="btn btn-primary text-white bg-indigo-600 hover:bg-indigo-700 text-xs px-2 py-1 rounded">
+                            <i data-lucide="download"></i> Download Image
+                        </a>
+                        <a href="#" class="btn text-gray-800 bg-gray-200 hover:bg-gray-300 text-xs px-2 py-1 rounded" onclick="requestXML('gan-educational-architecture.xml')">
+                            <i data-lucide="file-code"></i> Request XML
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Figure 5 -->
+                <div class="card-base figure-card">
+                    <h3 class="card-title"><i data-lucide="bar-chart-4"></i> Stress Detection Workflow</h3>
+                    <img src="figures/stress-detection-workflow.png" alt="Physiological Stress Detection Workflow">
+                    <p class="card-content">
+                        Diagram showing the processing workflow for our stress detection system using KNN, SVM, and XGBoost models.
+                    </p>
+                    <div class="card-footer flex justify-between mt-4">
+                        <a href="figures/stress-detection-workflow.png" download class="btn btn-primary text-white bg-indigo-600 hover:bg-indigo-700 text-xs px-2 py-1 rounded">
+                            <i data-lucide="download"></i> Download Image
+                        </a>
+                        <a href="#" class="btn text-gray-800 bg-gray-200 hover:bg-gray-300 text-xs px-2 py-1 rounded" onclick="requestXML('stress-detection-workflow.xml')">
+                            <i data-lucide="file-code"></i> Request XML
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Figure 6 -->
+                <div class="card-base figure-card">
+                    <h3 class="card-title"><i data-lucide="bar-chart-4"></i> Credit Card Fraud Detection</h3>
+                    <img src="figures/credit-card-fraud-detection.png" alt="Credit Card Fraud Detection Pipeline">
+                    <p class="card-content">
+                        The PySpark/Airflow batch system architecture for our credit card fraud detection system with 94.9% accuracy.
+                    </p>
+                    <div class="card-footer flex justify-between mt-4">
+                        <a href="figures/credit-card-fraud-detection.png" download class="btn btn-primary text-white bg-indigo-600 hover:bg-indigo-700 text-xs px-2 py-1 rounded">
+                            <i data-lucide="download"></i> Download Image
+                        </a>
+                        <a href="#" class="btn text-gray-800 bg-gray-200 hover:bg-gray-300 text-xs px-2 py-1 rounded" onclick="requestXML('credit-card-fraud-detection.xml')">
+                            <i data-lucide="file-code"></i> Request XML
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact for XML Files Section -->
+        <section id="request-xml" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="file-code"></i> Request Draw.io XML Files
+            </h2>
+            <p class="text-gray-700 mb-6">
+                The draw.io XML files for these diagrams are available upon request. These files can be imported into draw.io (diagrams.net) 
+                for modification and reuse. Please fill out the form below to request specific XML files.
+            </p>
+            
+            <form id="xml-request-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="requested-files" class="block text-sm font-medium text-gray-700 mb-1">Requested Files</label>
+                    <input type="text" id="requested-files" name="requested-files" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" readonly>
+                </div>
+                
+                <div>
+                    <label for="purpose" class="block text-sm font-medium text-gray-700 mb-1">Purpose of Use</label>
+                    <textarea id="purpose" name="purpose" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+                
+                <div>
+                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Submit Request
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; <span id="current-year"></span> Samir Poudel. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Mobile Menu Toggle
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('#mobile-menu a');
+
+            if (menuButton && mobileMenu) {
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const menuIcon = menuButton.querySelector('i[data-lucide]');
+                    if (menuIcon) {
+                        menuIcon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
+                        lucide.createIcons();
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            const menuIcon = menuButton.querySelector('i[data-lucide]');
+                            if (menuIcon) {
+                                menuIcon.setAttribute('data-lucide', 'menu');
+                                lucide.createIcons();
+                            }
+                        }
+                    });
+                });
+            }
+        });
+        
+        // XML request form functionality
+        function requestXML(filename) {
+            const requestedFilesInput = document.getElementById('requested-files');
+            let currentFiles = requestedFilesInput.value;
+            
+            if (currentFiles) {
+                if (!currentFiles.includes(filename)) {
+                    requestedFilesInput.value = currentFiles + ', ' + filename;
+                }
+            } else {
+                requestedFilesInput.value = filename;
+            }
+            
+            // Scroll to form
+            document.getElementById('request-xml').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Form submission
+        document.getElementById('xml-request-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send this form data to a server
+            // For now, we'll just show an alert
+            alert('Thank you for your request! We will send the XML files to your email shortly.');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
