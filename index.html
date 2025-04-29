@@ -6,120 +6,426 @@
     <title>Samir Poudel - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Apply Inter font globally */
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6; /* Slightly lighter gray background */
-            color: #1f2937; /* Darker gray text */
+            background-color: #f3f4f6;
+            color: #1f2937;
+            overflow-x: hidden;
         }
-        /* Simple smooth scroll */
+        
         html {
             scroll-behavior: smooth;
         }
-        /* Style for icons */
+        
+        /* Hero section styles */
+        .hero-container {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            overflow: hidden;
+        }
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        /* Animated data paths */
+        .data-path {
+            position: absolute;
+            width: 90%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
+            animation: data-flow 8s infinite linear;
+            opacity: 0.6;
+        }
+        
+        @keyframes data-flow {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Avatar and name styles */
+        .name-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .avatar {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin-right: 2rem;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(6deg);
+            box-shadow: 
+                0 10px 25px rgba(99, 102, 241, 0.3),
+                0 -2px 10px rgba(255, 255, 255, 0.1) inset;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: rotate(6deg) translateY(0); }
+            50% { transform: rotate(6deg) translateY(-10px); }
+        }
+        
+        .avatar::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+            top: 0;
+            left: 0;
+        }
+        
+        .avatar-text {
+            color: white;
+            font-size: 3.5rem;
+            font-weight: 800;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .name-title {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(to right, #fff, #c7d2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Animated title styles */
+        .title-animated {
+            overflow: hidden;
+            height: 35px;
+            position: relative;
+        }
+        
+        .title-container {
+            animation: change 12s infinite;
+        }
+        
+        @keyframes change {
+            0%, 20% { transform: translateY(0); }
+            25%, 45% { transform: translateY(-35px); }
+            50%, 70% { transform: translateY(-70px); }
+            75%, 95% { transform: translateY(-105px); }
+            100% { transform: translateY(0); }
+        }
+        
+        .title {
+            height: 35px;
+            font-size: 1.3rem;
+            line-height: 35px;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+        }
+        
+        .title i {
+            margin-right: 10px;
+            color: #6366f1;
+        }
+        
+        .decoration-line {
+            height: 3px;
+            width: 60px;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+            margin: 1.5rem 0;
+            border-radius: 2px;
+        }
+        
+        /* Content styling */
+        .tagline {
+            font-size: 1.2rem;
+            max-width: 600px;
+            text-align: center;
+            margin: 0 auto 2.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+        
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+        }
+        
+        .keyword {
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #e0e7ff;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .keyword:hover {
+            background: rgba(99, 102, 241, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        .keyword-dot {
+            width: 6px;
+            height: 6px;
+            background: #818cf8;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        /* Button and links styles */
+        .cta-button {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+            text-decoration: none;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        /* Icon styles */
         i[data-lucide] {
-            width: 1.25rem; /* Default icon size */
+            width: 1.25rem;
             height: 1.25rem;
             stroke-width: 2;
             display: inline-block;
             vertical-align: middle;
-            margin-right: 0.3rem; /* Consistent spacing */
+            margin-right: 0.3rem;
         }
-        /* Section heading icon size */
+        
         h2 i[data-lucide] {
              width: 1.5rem;
              height: 1.5rem;
              margin-right: 0.6rem;
         }
-        /* Header icon size */
+        
         header i[data-lucide] {
              width: 1rem;
              height: 1rem;
              margin-right: 0.25rem;
         }
-        /* Project/Publication/Talk card icon size */
+        
         .card-base i[data-lucide] {
             width: 1.1rem;
             height: 1.1rem;
             margin-right: 0.25rem;
-            flex-shrink: 0; /* Prevent icon shrinking */
+            flex-shrink: 0;
         }
-         /* Skill tag icon size */
+        
         .skill-tag i[data-lucide] {
             width: 1rem;
             height: 1rem;
             margin-right: 0.25rem;
         }
-        /* Add top margin to sections for scroll offset */
-        section[id] {
-            scroll-margin-top: 5rem; /* Adjust based on nav height */
+        
+        .social-link i {
+            color: white;
+            width: 20px;
+            height: 20px;
         }
-        /* Publication link styling within cards */
-        .publication-card a {
-            color: #374151; /* Slightly darker gray for links */
-            text-decoration: none;
-            transition: color 0.15s ease-in-out, text-decoration 0.15s ease-in-out;
-            display: inline-block; /* Ensure link takes space */
-        }
-        .publication-card a:hover {
-            color: #4f46e5; /* Indigo on hover */
-            text-decoration: underline;
-        }
-        /* Style for placeholder links within cards */
-        .publication-card a[href="#"] {
-             color: #6b7280; /* Lighter gray for placeholders */
-             cursor: default; /* Default cursor for non-links */
-             text-decoration: none;
-        }
-         .publication-card a[href="#"]:hover {
-             color: #6b7280; /* Keep color same on hover */
-             text-decoration: none;
-        }
-        /* Base card style */
+        
+        /* Card styles */
         .card-base {
-            border: 1px solid #e5e7eb; /* border-gray-200 */
-            border-radius: 0.5rem; /* rounded-lg */
-            padding: 1rem; /* p-4 */
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1rem;
             transition: box-shadow 0.2s ease-in-out;
             display: flex;
             flex-direction: column;
-            height: 100%; /* Make cards in a row equal height */
+            height: 100%;
+            background-color: #ffffff;
         }
+        
         .card-base:hover {
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         }
+        
         .card-title {
-            font-size: 1.125rem; /* text-lg */
-            font-weight: 600; /* font-semibold */
-            color: #111827; /* text-gray-900 */
-            margin-bottom: 0.5rem; /* mb-2 */
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
         }
-         .card-content {
-            font-size: 0.875rem; /* text-sm */
-            color: #4b5563; /* text-gray-600 */
-            flex-grow: 1; /* Allow content to push footer down if needed */
+        
+        .card-content {
+            font-size: 0.875rem;
+            color: #4b5563;
+            flex-grow: 1;
         }
+        
         .card-footer {
-            font-size: 0.75rem; /* text-xs */
-            color: #6b7280; /* text-gray-500 */
-            margin-top: 0.75rem; /* mt-3 */
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.75rem;
         }
-
+        
+        /* Publication link styling */
+        .publication-card a {
+            color: #374151;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out, text-decoration 0.15s ease-in-out;
+            display: inline-block;
+        }
+        
+        .publication-card a:hover {
+            color: #4f46e5;
+            text-decoration: underline;
+        }
+        
+        .publication-card a[href="#"] {
+             color: #6b7280;
+             cursor: default;
+             text-decoration: none;
+        }
+        
+        .publication-card a[href="#"]:hover {
+             color: #6b7280;
+             text-decoration: none;
+        }
+        
+        /* Section styles */
+        section[id] {
+            scroll-margin-top: 5rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .name-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+                width: 120px;
+                height: 120px;
+            }
+            
+            .avatar-text {
+                font-size: 2.8rem;
+            }
+            
+            .title-animated {
+                height: 30px;
+            }
+            
+            .title {
+                height: 30px;
+                font-size: 1.1rem;
+                line-height: 30px;
+                justify-content: center;
+            }
+            
+            @keyframes change {
+                0%, 20% { transform: translateY(0); }
+                25%, 45% { transform: translateY(-30px); }
+                50%, 70% { transform: translateY(-60px); }
+                75%, 95% { transform: translateY(-90px); }
+                100% { transform: translateY(0); }
+            }
+            
+            .decoration-line {
+                margin: 1rem auto;
+            }
+        }
     </style>
 </head>
-<body class="text-gray-800 antialiased">
-
+<body>
+    <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center">
-                     <a href="#" class="text-2xl font-bold text-indigo-600 bg-indigo-100 rounded-md px-3 py-1 hover:bg-indigo-200 transition duration-150">SP</a>
+                    <a href="#" class="text-2xl font-bold text-indigo-600 bg-indigo-100 rounded-md px-3 py-1 hover:bg-indigo-200 transition duration-150">SP</a>
                 </div>
                 <div class="hidden md:flex space-x-6">
                     <a href="#about" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">About</a>
@@ -130,11 +436,11 @@
                     <a href="#skills" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Skills</a>
                     <a href="#contact" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Contact</a>
                 </div>
-                 <div class="md:hidden flex items-center">
+                <div class="md:hidden flex items-center">
                     <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700">
                         <i data-lucide="menu"></i>
                     </button>
-                 </div>
+                </div>
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
@@ -150,21 +456,77 @@
         </div>
     </nav>
 
-    <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-20 md:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="mb-6">
-                <span class="text-6xl md:text-8xl font-bold bg-white text-indigo-600 rounded-lg px-6 py-3 shadow-lg inline-block">SP</span>
+    <!-- Header/Hero Section -->
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
+        <section class="hero-container">
+            <!-- Decorative data paths -->
+            <div class="data-path" style="top: 25%; transform: rotate(-5deg);"></div>
+            <div class="data-path" style="top: 45%; transform: rotate(3deg);"></div>
+            <div class="data-path" style="top: 65%; transform: rotate(-2deg);"></div>
+            
+            <!-- Particles.js background -->
+            <div id="particles-js"></div>
+            
+            <div class="content-wrapper">
+                <div class="name-container">
+                    <div class="avatar">
+                        <span class="avatar-text">SP</span>
+                    </div>
+                    <div class="name-title">
+                        <h1>Samir Poudel</h1>
+                        <div class="decoration-line"></div>
+                        <div class="title-animated">
+                            <div class="title-container">
+                                <div class="title">
+                                    <i data-lucide="brain-circuit"></i>
+                                    Ph.D. Candidate in Computational Science
+                                </div>
+                                <div class="title">
+                                    <i data-lucide="atom"></i>
+                                    Machine Learning Researcher
+                                </div>
+                                <div class="title">
+                                    <i data-lucide="code"></i>
+                                    Software Engineer
+                                </div>
+                                <div class="title">
+                                    <i data-lucide="chart"></i>
+                                    Data Scientist
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="tagline">Exploring the intersection of computational methods and data science to solve complex problems through innovative machine learning approaches.</p>
+                
+                <div class="keywords">
+                    <div class="keyword"><span class="keyword-dot"></span>Deep Learning</div>
+                    <div class="keyword"><span class="keyword-dot"></span>Natural Language Processing</div>
+                    <div class="keyword"><span class="keyword-dot"></span>Computer Vision</div>
+                    <div class="keyword"><span class="keyword-dot"></span>Big Data Analytics</div>
+                    <div class="keyword"><span class="keyword-dot"></span>Neural Networks</div>
+                    <div class="keyword"><span class="keyword-dot"></span>Algorithms</div>
+                </div>
+                
+                <a href="#contact" class="cta-button">
+                    <i data-lucide="mail"></i>
+                    Get In Touch
+                </a>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i data-lucide="github"></i></a>
+                    <a href="#" class="social-link"><i data-lucide="linkedin"></i></a>
+                    <a href="#" class="social-link"><i data-lucide="twitter"></i></a>
+                    <a href="#" class="social-link"><i data-lucide="book-open"></i></a>
+                </div>
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold mb-3">Samir Poudel</h1>
-            <p class="text-lg md:text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">Ph.D. Candidate in Computational and Data Science | Machine Learning Researcher | Software Engineer</p>
-            <a href="#contact" class="bg-white text-indigo-600 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 ease-in-out inline-flex items-center">
-                <i data-lucide="mail"></i> Get In Touch
-            </a>
-        </div>
+        </section>
     </header>
 
+    <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-16">
-
+        <!-- About Section -->
         <section id="about" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
                 <i data-lucide="user-round"></i> About Me
@@ -177,6 +539,7 @@
             </p>
         </section>
 
+        <!-- Experience Section -->
         <section id="experience" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
                 <i data-lucide="briefcase"></i> Experience
@@ -184,7 +547,10 @@
             <div class="space-y-8">
                 <div class="border-l-4 border-indigo-500 pl-6">
                     <h3 class="text-xl font-semibold text-gray-800">Graduate Research Assistant</h3>
-                    <p class="text-sm text-gray-500 mb-2 flex items-center flex-wrap"><i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>Middle Tennessee State University (MTSU), Murfreesboro, TN | <i data-lucide="calendar-days" class="w-4 h-4 ml-2 mr-1"></i>Aug 2023 – Present</p>
+                    <p class="text-sm text-gray-500 mb-2 flex items-center flex-wrap">
+                        <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>Middle Tennessee State University (MTSU), Murfreesboro, TN | 
+                        <i data-lucide="calendar-days" class="w-4 h-4 ml-2 mr-1"></i>Aug 2023 – Present
+                    </p>
                     <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm pl-2">
                         <li>Contribute to machine learning and LLM research projects.</li>
                         <li>Utilize models like BERT and SVM, accelerating analysis workflows.</li>
@@ -193,7 +559,10 @@
                 </div>
                 <div class="border-l-4 border-indigo-500 pl-6">
                     <h3 class="text-xl font-semibold text-gray-800">Data Analyst</h3>
-                    <p class="text-sm text-gray-500 mb-2 flex items-center flex-wrap"><i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>Urja Tech, Pokhara, Nepal | <i data-lucide="calendar-days" class="w-4 h-4 ml-2 mr-1"></i>Feb 2018 – March 2022</p>
+                    <p class="text-sm text-gray-500 mb-2 flex items-center flex-wrap">
+                        <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>Urja Tech, Pokhara, Nepal | 
+                        <i data-lucide="calendar-days" class="w-4 h-4 ml-2 mr-1"></i>Feb 2018 – March 2022
+                    </p>
                     <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm pl-2">
                         <li>Led data analysis initiatives, boosting operational efficiency.</li>
                         <li>Architected SQL databases and Tableau dashboards to enhance decision-making.</li>
@@ -203,6 +572,7 @@
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
                 <i data-lucide="code-xml"></i> Projects
@@ -224,80 +594,81 @@
                     <h3 class="card-title"><i data-lucide="credit-card"></i> Credit Card Fraud Detection</h3>
                     <p class="card-content">Built a PySpark/Airflow batch system achieving 94.9% accuracy with imbalanced data.</p>
                 </div>
-                 <div class="card-base project-card">
+                <div class="card-base project-card">
                     <h3 class="card-title"><i data-lucide="brain-circuit"></i> GAN Educational Content</h3>
                     <p class="card-content">Researched GANs for education, enhancing comprehension scores by 24%.</p>
                 </div>
-                 <div class="card-base project-card">
+                <div class="card-base project-card">
                     <h3 class="card-title"><i data-lucide="activity"></i> Physiological Stress Detection</h3>
                     <p class="card-content">Developed ML models (KNN, SVM, XGBoost) improving stress detection accuracy by 18%.</p>
                 </div>
-                 <div class="card-base project-card">
+                <div class="card-base project-card">
                     <h3 class="card-title"><i data-lucide="users"></i> AI Consulting Platform</h3>
                     <p class="card-content">Built a Next.js/Node.js platform reducing client onboarding time by 35%.</p>
                 </div>
-                 <div class="card-base project-card">
+                <div class="card-base project-card">
                     <h3 class="card-title"><i data-lucide="line-chart"></i> Marketing Analytics Dashboard</h3>
                     <p class="card-content">Integrated Alteryx, Power BI, SQL increasing campaign ROI by 22%.</p>
                 </div>
             </div>
         </section>
 
+        <!-- Publications Section -->
         <section id="publications" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
                 <i data-lucide="book-open-check"></i> Publications
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <div class="card-base publication-card">
+                <div class="card-base publication-card">
                     <h3 class="card-title"><i data-lucide="file-text"></i> Big Data Optimization</h3>
                     <p class="card-content">
                         <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">A Big Data Optimization Comparison using Apache Spark and Apache Airflow</a>
                     </p>
                     <p class="card-footer">2025 IEEE 15th Annual Computing and Communication Workshop and Conference</p>
                 </div>
-                 <div class="card-base publication-card">
+                <div class="card-base publication-card">
                     <h3 class="card-title"><i data-lucide="file-text"></i> Blockchain in Gaming</h3>
                     <p class="card-content">
                         <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets</a>
                     </p>
                     <p class="card-footer">2025 IEEE 15th Annual Computing and Communication Workshop and Conference</p>
                 </div>
-                 <div class="card-base publication-card">
+                <div class="card-base publication-card">
                     <h3 class="card-title"><i data-lucide="file-text"></i> VulnFusion</h3>
                     <p class="card-content">
                         <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">VulnFusion: Exploiting Multimodal Representations for Smart Contract Vulnerability Detection</a> (Citations: 1)
                     </p>
-                     <p class="card-footer">2024 6th International Conference on Blockchain Computing and Applications</p>
+                    <p class="card-footer">2024 6th International Conference on Blockchain Computing and Applications</p>
                 </div>
-                 <div class="card-base publication-card">
+                <div class="card-base publication-card">
                     <h3 class="card-title"><i data-lucide="file-text"></i> QuadraCode AI</h3>
                     <p class="card-content">
                         <a href="https://doi.org/10.1109/icccn61486.2024.10637655" target="_blank" rel="noopener noreferrer">QuadraCode AI: Smart Contract Vulnerability Detection with Multimodal Representation</a> (Citations: 2)
                     </p>
                      <p class="card-footer">2024 33rd International Conference on Computer Communications and Networks</p>
                 </div>
-                 <div class="card-base publication-card">
+                <div class="card-base publication-card">
                     <h3 class="card-title"><i data-lucide="file-text"></i> Personalized Stress Detection</h3>
                     <p class="card-content">
                         <a href="https://doi.org/10.1109/intcec61833.2024.10602865" target="_blank" rel="noopener noreferrer">Personalized stress detection from chest-worn sensors by leveraging machine learning</a> (Citations: 1)
                     </p>
                      <p class="card-footer">2024 INTCEC</p>
                 </div>
-                 <div class="card-base publication-card">
+                <div class="card-base publication-card">
                     <h3 class="card-title"><i data-lucide="file-text"></i> Cryptocurrency Prediction</h3>
                     <p class="card-content">
                         <a href="https://doi.org/10.1057/s41270-023-00239-1" target="_blank" rel="noopener noreferrer">Cryptocurrency price and volatility predictions with machine learning</a> (Citations: 10)
                     </p>
                      <p class="card-footer">Journal of Marketing Analytics</p>
                 </div>
-                 <div class="card-base publication-card">
+                <div class="card-base publication-card">
                     <h3 class="card-title"><i data-lucide="file-text"></i> MPI4Py Cost Minimization</h3>
                     <p class="card-content">
                         <a href="https://doi.org/10.1016/j.mlwa.2023.100483" target="_blank" rel="noopener noreferrer">Minimization of High Computational Cost in Data Preprocessing with MPI4Py</a> (Citations: 12)
                     </p>
                      <p class="card-footer">Machine Learning with Applications</p>
                 </div>
-                 <div class="card-base publication-card">
+                <div class="card-base publication-card">
                     <h3 class="card-title"><i data-lucide="file-text"></i> ICU Length-of-Stay</h3>
                     <p class="card-content">
                         <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HaaPSSIAAAAJ&citation_for_view=HaaPSSIAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener noreferrer">Prediction of Length-of-stay at ICU Using Machine Learning based on MIMIC-III Database</a> (Citations: 12)
@@ -307,6 +678,7 @@
             </div>
         </section>
 
+        <!-- Talks Section -->
         <section id="talks" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
                 <i data-lucide="presentation"></i> Talks & Conferences
@@ -345,6 +717,7 @@
              </div>
         </section>
 
+        <!-- Skills Section -->
         <section id="skills" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
                 <i data-lucide="cpu"></i> Technical Skills
@@ -359,7 +732,7 @@
                         <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> SQL</span>
                         <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Solidity</span>
                         <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> HTML/CSS</span>
-                         <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> LaTeX</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> LaTeX</span>
                     </div>
                 </div>
                 <div>
@@ -374,7 +747,7 @@
                         <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Apache Airflow</span>
                     </div>
                 </div>
-                 <div>
+                <div>
                     <h3 class="text-lg font-medium text-gray-700 mb-3">Cloud & Tools:</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> AWS (SageMaker, Lambda, S3, API Gateway)</span>
@@ -386,21 +759,22 @@
                         <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Git</span>
                     </div>
                 </div>
-                 <div>
+                <div>
                     <h3 class="text-lg font-medium text-gray-700 mb-3">Domains:</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Machine Learning</span>
-                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Computer Vision</span>
-                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Blockchain</span>
-                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Data Analytics</span>
-                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Federated Learning</span>
-                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> NLP</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Computer Vision</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Blockchain</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Data Analytics</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Federated Learning</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> NLP</span>
                     </div>
                 </div>
             </div>
         </section>
 
-         <section id="contact" class="bg-white p-6 md:p-8 rounded-lg shadow-md text-center">
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white p-6 md:p-8 rounded-lg shadow-md text-center">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center justify-center">
                 <i data-lucide="mail-plus"></i> Get In Touch
             </h2>
@@ -408,58 +782,151 @@
                 I'm always open to discussing new projects, research collaborations, or opportunities. Feel free to reach out!
             </p>
             <div class="space-y-4">
-                 <a href="mailto:spoudel04@gmail.com" class="inline-flex items-center justify-center bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out w-full sm:w-auto">
+                <a href="mailto:spoudel04@gmail.com" class="inline-flex items-center justify-center bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out w-full sm:w-auto">
                     <i data-lucide="mail" class="mr-2"></i> Email: spoudel04@gmail.com
-                 </a>
-                 <p class="text-gray-600 flex items-center justify-center">
-                     <i data-lucide="phone" class="mr-2"></i> Mobile: +1-629-238-6838
-                 </p>
+                </a>
+                <p class="text-gray-600 flex items-center justify-center">
+                    <i data-lucide="phone" class="mr-2"></i> Mobile: +1-629-238-6838
+                </p>
             </div>
-             <div class="mt-8 flex justify-center space-x-6">
-                 <a href="#" class="text-gray-500 hover:text-indigo-600" title="LinkedIn (Link not provided)">
-                     <i data-lucide="linkedin" class="w-7 h-7"></i>
-                     <span class="sr-only">LinkedIn</span>
-                 </a>
-                 <a href="#" class="text-gray-500 hover:text-indigo-600" title="GitHub (Link not provided)">
-                     <i data-lucide="github" class="w-7 h-7"></i>
-                     <span class="sr-only">GitHub</span>
-                 </a>
-                 </div>
-         </section>
-
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="#" class="text-gray-500 hover:text-indigo-600" title="LinkedIn (Link not provided)">
+                    <i data-lucide="linkedin" class="w-7 h-7"></i>
+                    <span class="sr-only">LinkedIn</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-indigo-600" title="GitHub (Link not provided)">
+                    <i data-lucide="github" class="w-7 h-7"></i>
+                    <span class="sr-only">GitHub</span>
+                </a>
+            </div>
+        </section>
     </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-gray-400 py-6 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            &copy; <span id="current-year"></span> Samir Poudel. All Rights Reserved. Minimalist Portfolio Template.
+            &copy; <span id="current-year"></span> Samir Poudel. All Rights Reserved.
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script>
-        // Render Lucide icons
-        lucide.createIcons();
+        // Initialize particles.js
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#6366f1"
+                    },
+                    "shape": {
+                        "type": ["circle", "triangle"],
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#6366f1",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": true,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 0.4
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+            
+            // Initialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
 
         // Set current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
-        // Basic Mobile Menu Toggle
+        // Mobile Menu Toggle
         const menuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelectorAll('#mobile-menu a'); // Get all mobile nav links
+        const navLinks = document.querySelectorAll('#mobile-menu a');
 
         if (menuButton && mobileMenu) {
             menuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
-                 // Change menu icon based on state
-                 const menuIcon = menuButton.querySelector('i[data-lucide]');
-                 if (menuIcon) {
-                     menuIcon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
-                     lucide.createIcons(); // Re-render icons after changing attribute
-                 }
+                const menuIcon = menuButton.querySelector('i[data-lucide]');
+                if (menuIcon) {
+                    menuIcon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
+                    lucide.createIcons();
+                }
             });
 
-             // Close mobile menu when a link is clicked
-             navLinks.forEach(link => {
+            navLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
@@ -473,6 +940,5 @@
             });
         }
     </script>
-
 </body>
 </html>
