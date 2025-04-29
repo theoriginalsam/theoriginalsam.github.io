@@ -980,5 +980,24 @@
             });
         }
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Wait a small amount of time to ensure the DOM is fully loaded
+        setTimeout(function() {
+          if (typeof lucide !== 'undefined') {
+            lucide.createIcons({
+              attrs: {
+                'stroke-width': '2',
+                'stroke-linecap': 'round',
+                'stroke-linejoin': 'round'
+              }
+            });
+            console.log('Lucide icons initialized');
+          } else {
+            console.error('Lucide library not loaded');
+          }
+        }, 100);
+      });
+    </script>
 </body>
 </html>
