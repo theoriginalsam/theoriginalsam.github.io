@@ -41,11 +41,12 @@
              height: 1rem;
              margin-right: 0.25rem;
         }
-        /* Project card icon size */
-        .project-card i[data-lucide] {
+        /* Project/Publication/Talk card icon size */
+        .card-base i[data-lucide] {
             width: 1.1rem;
             height: 1.1rem;
             margin-right: 0.25rem;
+            flex-shrink: 0; /* Prevent icon shrinking */
         }
          /* Skill tag icon size */
         .skill-tag i[data-lucide] {
@@ -53,39 +54,63 @@
             height: 1rem;
             margin-right: 0.25rem;
         }
-        /* Publication/Talk list item icon */
-        .list-item-icon i[data-lucide] {
-            width: 1rem;
-            height: 1rem;
-            color: #4f46e5; /* Indigo color for list icons */
-            margin-right: 0.5rem;
-            flex-shrink: 0; /* Prevent icon shrinking */
-            margin-top: 0.125rem; /* Align icon slightly better with text */
-        }
         /* Add top margin to sections for scroll offset */
         section[id] {
             scroll-margin-top: 5rem; /* Adjust based on nav height */
         }
-        /* Publication link styling */
-        #publications a {
+        /* Publication link styling within cards */
+        .publication-card a {
             color: #374151; /* Slightly darker gray for links */
             text-decoration: none;
             transition: color 0.15s ease-in-out, text-decoration 0.15s ease-in-out;
+            display: inline-block; /* Ensure link takes space */
         }
-        #publications a:hover {
+        .publication-card a:hover {
             color: #4f46e5; /* Indigo on hover */
             text-decoration: underline;
         }
-        /* Style for placeholder links */
-        #publications a[href="#"] {
+        /* Style for placeholder links within cards */
+        .publication-card a[href="#"] {
              color: #6b7280; /* Lighter gray for placeholders */
              cursor: default; /* Default cursor for non-links */
              text-decoration: none;
         }
-         #publications a[href="#"]:hover {
+         .publication-card a[href="#"]:hover {
              color: #6b7280; /* Keep color same on hover */
              text-decoration: none;
         }
+        /* Base card style */
+        .card-base {
+            border: 1px solid #e5e7eb; /* border-gray-200 */
+            border-radius: 0.5rem; /* rounded-lg */
+            padding: 1rem; /* p-4 */
+            transition: box-shadow 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Make cards in a row equal height */
+        }
+        .card-base:hover {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-lg */
+        }
+        .card-title {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+            color: #111827; /* text-gray-900 */
+            margin-bottom: 0.5rem; /* mb-2 */
+            display: flex;
+            align-items: center;
+        }
+         .card-content {
+            font-size: 0.875rem; /* text-sm */
+            color: #4b5563; /* text-gray-600 */
+            flex-grow: 1; /* Allow content to push footer down if needed */
+        }
+        .card-footer {
+            font-size: 0.75rem; /* text-xs */
+            color: #6b7280; /* text-gray-500 */
+            margin-top: 0.75rem; /* mt-3 */
+        }
+
     </style>
 </head>
 <body class="text-gray-800 antialiased">
@@ -183,37 +208,37 @@
                 <i data-lucide="code-xml"></i> Projects
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="shield-check"></i> Edge-Case Backdoor Detection</h3>
-                    <p class="text-sm text-gray-600 flex-grow">Developed a defense framework for distributed ML, reducing attack success rates below 15%.</p>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="shield-check"></i> Edge-Case Backdoor Detection</h3>
+                    <p class="card-content">Developed a defense framework for distributed ML, reducing attack success rates below 15%.</p>
                 </div>
-                <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="lock-keyhole"></i> Privacy-Preserving Monitoring</h3>
-                    <p class="text-sm text-gray-600 flex-grow">Architected a secure federated learning framework using satellite imagery, achieving 0.85 IoU.</p>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="lock-keyhole"></i> Privacy-Preserving Monitoring</h3>
+                    <p class="card-content">Architected a secure federated learning framework using satellite imagery, achieving 0.85 IoU.</p>
                 </div>
-                <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="cloud-cog"></i> Cloud Fake News Detection</h3>
-                    <p class="text-sm text-gray-600 flex-grow">Designed a serverless AWS solution (BERT/LSTM) with 94.9% accuracy and low latency.</p>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="cloud-cog"></i> Cloud Fake News Detection</h3>
+                    <p class="card-content">Designed a serverless AWS solution (BERT/LSTM) with 94.9% accuracy and low latency.</p>
                 </div>
-                <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="credit-card"></i> Credit Card Fraud Detection</h3>
-                    <p class="text-sm text-gray-600 flex-grow">Built a PySpark/Airflow batch system achieving 94.9% accuracy with imbalanced data.</p>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="credit-card"></i> Credit Card Fraud Detection</h3>
+                    <p class="card-content">Built a PySpark/Airflow batch system achieving 94.9% accuracy with imbalanced data.</p>
                 </div>
-                 <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="brain-circuit"></i> GAN Educational Content</h3>
-                    <p class="text-sm text-gray-600 flex-grow">Researched GANs for education, enhancing comprehension scores by 24%.</p>
+                 <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="brain-circuit"></i> GAN Educational Content</h3>
+                    <p class="card-content">Researched GANs for education, enhancing comprehension scores by 24%.</p>
                 </div>
-                 <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="activity"></i> Physiological Stress Detection</h3>
-                    <p class="text-sm text-gray-600 flex-grow">Developed ML models (KNN, SVM, XGBoost) improving stress detection accuracy by 18%.</p>
+                 <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="activity"></i> Physiological Stress Detection</h3>
+                    <p class="card-content">Developed ML models (KNN, SVM, XGBoost) improving stress detection accuracy by 18%.</p>
                 </div>
-                 <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="users"></i> AI Consulting Platform</h3>
-                    <p class="text-sm text-gray-600 flex-grow">Built a Next.js/Node.js platform reducing client onboarding time by 35%.</p>
+                 <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="users"></i> AI Consulting Platform</h3>
+                    <p class="card-content">Built a Next.js/Node.js platform reducing client onboarding time by 35%.</p>
                 </div>
-                 <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="line-chart"></i> Marketing Analytics Dashboard</h3>
-                    <p class="text-sm text-gray-600 flex-grow">Integrated Alteryx, Power BI, SQL increasing campaign ROI by 22%.</p>
+                 <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="line-chart"></i> Marketing Analytics Dashboard</h3>
+                    <p class="card-content">Integrated Alteryx, Power BI, SQL increasing campaign ROI by 22%.</p>
                 </div>
             </div>
         </section>
@@ -222,72 +247,102 @@
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
                 <i data-lucide="book-open-check"></i> Publications
             </h2>
-            <ul class="space-y-4">
-                <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
-                    <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">A Big Data Optimization Comparison using Apache Spark and Apache Airflow, 2025 IEEE 15th Annual Computing and Communication Workshop and Conference</a>
-                </li>
-                <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
-                     <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets, 2025 IEEE 15th Annual Computing and Communication Workshop and Conference</a>
-                </li>
-                <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
-                    <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">VulnFusion: Exploiting Multimodal Representations for Smart Contract Vulnerability Detection, 2024 6th International Conference on Blockchain Computing and Applications (Citations: 1)</a>
-                </li>
-                 <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
-                    <a href="https://doi.org/10.1109/icccn61486.2024.10637655" target="_blank" rel="noopener noreferrer" class="text-gray-700">QuadraCode AI: Smart Contract Vulnerability Detection with Multimodal Representation, 2024 33rd International Conference on Computer Communications and Networks (Citations: 2)</a>
-                </li>
-                 <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
-                     <a href="https://doi.org/10.1109/intcec61833.2024.10602865" target="_blank" rel="noopener noreferrer" class="text-gray-700">Personalized stress detection from chest-worn sensors by leveraging machine learning, 2024 INTCEC (Citations: 1)</a>
-                </li>
-                 <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
-                     <a href="https://doi.org/10.1057/s41270-023-00239-1" target="_blank" rel="noopener noreferrer" class="text-gray-700">Cryptocurrency price and volatility predictions with machine learning, Journal of Marketing Analytics (Citations: 10)</a>
-                </li>
-                 <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
-                     <a href="https://doi.org/10.1016/j.mlwa.2023.100483" target="_blank" rel="noopener noreferrer" class="text-gray-700">Minimization of High Computational Cost in Data Preprocessing with MPI4Py, Machine Learning with Applications (Citations: 12)</a>
-                </li>
-                 <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
-                     <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HaaPSSIAAAAJ&citation_for_view=HaaPSSIAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener noreferrer" class="text-gray-700">Prediction of Length-of-stay at ICU Using Machine Learning based on MIMIC-III Database, 2023 IEEE Conference on Artificial Intelligence (Citations: 12)</a>
-                </li>
-            </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 <div class="card-base publication-card">
+                    <h3 class="card-title"><i data-lucide="file-text"></i> Big Data Optimization</h3>
+                    <p class="card-content">
+                        <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">A Big Data Optimization Comparison using Apache Spark and Apache Airflow</a>
+                    </p>
+                    <p class="card-footer">2025 IEEE 15th Annual Computing and Communication Workshop and Conference</p>
+                </div>
+                 <div class="card-base publication-card">
+                    <h3 class="card-title"><i data-lucide="file-text"></i> Blockchain in Gaming</h3>
+                    <p class="card-content">
+                        <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets</a>
+                    </p>
+                    <p class="card-footer">2025 IEEE 15th Annual Computing and Communication Workshop and Conference</p>
+                </div>
+                 <div class="card-base publication-card">
+                    <h3 class="card-title"><i data-lucide="file-text"></i> VulnFusion</h3>
+                    <p class="card-content">
+                        <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">VulnFusion: Exploiting Multimodal Representations for Smart Contract Vulnerability Detection</a> (Citations: 1)
+                    </p>
+                     <p class="card-footer">2024 6th International Conference on Blockchain Computing and Applications</p>
+                </div>
+                 <div class="card-base publication-card">
+                    <h3 class="card-title"><i data-lucide="file-text"></i> QuadraCode AI</h3>
+                    <p class="card-content">
+                        <a href="https://doi.org/10.1109/icccn61486.2024.10637655" target="_blank" rel="noopener noreferrer">QuadraCode AI: Smart Contract Vulnerability Detection with Multimodal Representation</a> (Citations: 2)
+                    </p>
+                     <p class="card-footer">2024 33rd International Conference on Computer Communications and Networks</p>
+                </div>
+                 <div class="card-base publication-card">
+                    <h3 class="card-title"><i data-lucide="file-text"></i> Personalized Stress Detection</h3>
+                    <p class="card-content">
+                        <a href="https://doi.org/10.1109/intcec61833.2024.10602865" target="_blank" rel="noopener noreferrer">Personalized stress detection from chest-worn sensors by leveraging machine learning</a> (Citations: 1)
+                    </p>
+                     <p class="card-footer">2024 INTCEC</p>
+                </div>
+                 <div class="card-base publication-card">
+                    <h3 class="card-title"><i data-lucide="file-text"></i> Cryptocurrency Prediction</h3>
+                    <p class="card-content">
+                        <a href="https://doi.org/10.1057/s41270-023-00239-1" target="_blank" rel="noopener noreferrer">Cryptocurrency price and volatility predictions with machine learning</a> (Citations: 10)
+                    </p>
+                     <p class="card-footer">Journal of Marketing Analytics</p>
+                </div>
+                 <div class="card-base publication-card">
+                    <h3 class="card-title"><i data-lucide="file-text"></i> MPI4Py Cost Minimization</h3>
+                    <p class="card-content">
+                        <a href="https://doi.org/10.1016/j.mlwa.2023.100483" target="_blank" rel="noopener noreferrer">Minimization of High Computational Cost in Data Preprocessing with MPI4Py</a> (Citations: 12)
+                    </p>
+                     <p class="card-footer">Machine Learning with Applications</p>
+                </div>
+                 <div class="card-base publication-card">
+                    <h3 class="card-title"><i data-lucide="file-text"></i> ICU Length-of-Stay</h3>
+                    <p class="card-content">
+                        <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HaaPSSIAAAAJ&citation_for_view=HaaPSSIAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener noreferrer">Prediction of Length-of-stay at ICU Using Machine Learning based on MIMIC-III Database</a> (Citations: 12)
+                    </p>
+                     <p class="card-footer">2023 IEEE Conference on Artificial Intelligence</p>
+                </div>
+            </div>
         </section>
 
         <section id="talks" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
             <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
                 <i data-lucide="presentation"></i> Talks & Conferences
             </h2>
-            <ul class="space-y-4">
-                <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
-                    <span class="text-gray-700">Delivered findings on "Big Data Optimization Comparison using Apache Spark and Apache Airflow" at IEEE 15th Annual Computing and Communication Workshop, Las Vegas, USA, January 2025</span>
-                </li>
-                 <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
-                    <span class="text-gray-700">Showcased research on "Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets" at IEEE 15th Annual Computing and Communication Workshop, Las Vegas, USA, January 2025</span>
-                </li>
-                 <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
-                    <span class="text-gray-700">Demonstrated work on "Credit Card Batch Processing in Banking System" at International Conference on Advances in Computing Research, March 2024</span>
-                </li>
-                 <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
-                    <span class="text-gray-700">Introduced methodology for "CARLA Simulator to Train Deep Q Self-Driving Car for Campus Navigation" at IEEE International Conference on Big Data, Sorrento, Italy, December 2023</span>
-                </li>
-                 <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
-                    <span class="text-gray-700">Discussed innovations in "Scalable Multimodal Machine Learning for Cervical Cancer Detection" at IEEE World AI IoT Congress, 2024</span>
-                </li>
-                 <li class="flex items-start">
-                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
-                    <span class="text-gray-700">Exhibited research on "Merged Blockchain and AI for Improved Healthcare Data Management" at ACM Mid-Southeast Conference, 2023</span>
-                </li>
-            </ul>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> IEEE CCWC 2025 (Big Data)</h3>
+                    <p class="card-content">Delivered findings on "Big Data Optimization Comparison using Apache Spark and Apache Airflow".</p>
+                    <p class="card-footer">Las Vegas, USA, January 2025</p>
+                 </div>
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> IEEE CCWC 2025 (Blockchain)</h3>
+                    <p class="card-content">Showcased research on "Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets".</p>
+                    <p class="card-footer">Las Vegas, USA, January 2025</p>
+                 </div>
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> Int. Conf. Advances in Computing Research</h3>
+                    <p class="card-content">Demonstrated work on "Credit Card Batch Processing in Banking System".</p>
+                    <p class="card-footer">March 2024</p>
+                 </div>
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> IEEE Int. Conf. on Big Data</h3>
+                    <p class="card-content">Introduced methodology for "CARLA Simulator to Train Deep Q Self-Driving Car for Campus Navigation".</p>
+                    <p class="card-footer">Sorrento, Italy, December 2023</p>
+                 </div>
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> IEEE World AI IoT Congress</h3>
+                    <p class="card-content">Discussed innovations in "Scalable Multimodal Machine Learning for Cervical Cancer Detection".</p>
+                    <p class="card-footer">2024</p>
+                 </div>
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> ACM Mid-Southeast Conference</h3>
+                    <p class="card-content">Exhibited research on "Merged Blockchain and AI for Improved Healthcare Data Management".</p>
+                    <p class="card-footer">2023</p>
+                 </div>
+             </div>
         </section>
 
         <section id="skills" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
