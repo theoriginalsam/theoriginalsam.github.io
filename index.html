@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samir Poudel - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Apply Inter font globally */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Slightly lighter gray background */
+            color: #1f2937; /* Darker gray text */
+        }
+        /* Simple smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Style for icons */
+        i[data-lucide] {
+            width: 1.25rem; /* Default icon size */
+            height: 1.25rem;
+            stroke-width: 2;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.3rem; /* Consistent spacing */
+        }
+        /* Section heading icon size */
+        h2 i[data-lucide] {
+             width: 1.5rem;
+             height: 1.5rem;
+             margin-right: 0.6rem;
+        }
+        /* Header icon size */
+        header i[data-lucide] {
+             width: 1rem;
+             height: 1rem;
+             margin-right: 0.25rem;
+        }
+        /* Project card icon size */
+        .project-card i[data-lucide] {
+            width: 1.1rem;
+            height: 1.1rem;
+            margin-right: 0.25rem;
+        }
+         /* Skill tag icon size */
+        .skill-tag i[data-lucide] {
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.25rem;
+        }
+        /* Publication/Talk list item icon */
+        .list-item-icon i[data-lucide] {
+            width: 1rem;
+            height: 1rem;
+            color: #4f46e5; /* Indigo color for list icons */
+            margin-right: 0.5rem;
+            flex-shrink: 0; /* Prevent icon shrinking */
+            margin-top: 0.125rem; /* Align icon slightly better with text */
+        }
+        /* Add top margin to sections for scroll offset */
+        section[id] {
+            scroll-margin-top: 5rem; /* Adjust based on nav height */
+        }
+        /* Publication link styling */
+        #publications a {
+            color: #374151; /* Slightly darker gray for links */
+            text-decoration: none;
+            transition: color 0.15s ease-in-out, text-decoration 0.15s ease-in-out;
+        }
+        #publications a:hover {
+            color: #4f46e5; /* Indigo on hover */
+            text-decoration: underline;
+        }
+        /* Style for placeholder links */
+        #publications a[href="#"] {
+             color: #6b7280; /* Lighter gray for placeholders */
+             cursor: default; /* Default cursor for non-links */
+             text-decoration: none;
+        }
+         #publications a[href="#"]:hover {
+             color: #6b7280; /* Keep color same on hover */
+             text-decoration: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                     <a href="#" class="text-2xl font-bold text-indigo-600 bg-indigo-100 rounded-md px-3 py-1 hover:bg-indigo-200 transition duration-150">SP</a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">About</a>
+                    <a href="#experience" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Experience</a>
+                    <a href="#projects" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Projects</a>
+                    <a href="#publications" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Publications</a>
+                    <a href="#talks" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Talks</a>
+                    <a href="#skills" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Skills</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Contact</a>
+                </div>
+                 <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700">
+                        <i data-lucide="menu"></i>
+                    </button>
+                 </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#experience" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                <a href="#projects" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#publications" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Publications</a>
+                <a href="#talks" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Talks</a>
+                <a href="#skills" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#contact" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-6">
+                <span class="text-6xl md:text-8xl font-bold bg-white text-indigo-600 rounded-lg px-6 py-3 shadow-lg inline-block">SP</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-3">Samir Poudel</h1>
+            <p class="text-lg md:text-xl text-indigo-100 mb-8 max-w-3xl mx-auto">Ph.D. Candidate in Computational and Data Science | Machine Learning Researcher | Software Engineer</p>
+            <a href="#contact" class="bg-white text-indigo-600 font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 ease-in-out inline-flex items-center">
+                <i data-lucide="mail"></i> Get In Touch
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-16">
+
+        <section id="about" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="user-round"></i> About Me
+            </h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Highly motivated Ph.D. candidate in Computational and Data Science at Middle Tennessee State University with a strong foundation in Software Engineering. Passionate about leveraging machine learning, data analytics, and cloud technologies to solve complex problems.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+                Experienced in developing and deploying ML models, conducting research in areas like backdoor detection, privacy-preserving learning, and fake news detection. Proven ability to translate data into actionable insights and contribute to cutting-edge research projects. Seeking opportunities to apply expertise in challenging and impactful roles.
+            </p>
+        </section>
+
+        <section id="experience" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="briefcase"></i> Experience
+            </h2>
+            <div class="space-y-8">
+                <div class="border-l-4 border-indigo-500 pl-6">
+                    <h3 class="text-xl font-semibold text-gray-800">Graduate Research Assistant</h3>
+                    <p class="text-sm text-gray-500 mb-2 flex items-center flex-wrap"><i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>Middle Tennessee State University (MTSU), Murfreesboro, TN | <i data-lucide="calendar-days" class="w-4 h-4 ml-2 mr-1"></i>Aug 2023 – Present</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm pl-2">
+                        <li>Contribute to machine learning and LLM research projects.</li>
+                        <li>Utilize models like BERT and SVM, accelerating analysis workflows.</li>
+                        <li>Leverage Alteryx and PowerBI for data operations and insights, securing research funding.</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-indigo-500 pl-6">
+                    <h3 class="text-xl font-semibold text-gray-800">Data Analyst</h3>
+                    <p class="text-sm text-gray-500 mb-2 flex items-center flex-wrap"><i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>Urja Tech, Pokhara, Nepal | <i data-lucide="calendar-days" class="w-4 h-4 ml-2 mr-1"></i>Feb 2018 – March 2022</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm pl-2">
+                        <li>Led data analysis initiatives, boosting operational efficiency.</li>
+                        <li>Architected SQL databases and Tableau dashboards to enhance decision-making.</li>
+                        <li>Applied statistical methods and predictive modeling for business forecasting.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="code-xml"></i> Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="shield-check"></i> Edge-Case Backdoor Detection</h3>
+                    <p class="text-sm text-gray-600 flex-grow">Developed a defense framework for distributed ML, reducing attack success rates below 15%.</p>
+                </div>
+                <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="lock-keyhole"></i> Privacy-Preserving Monitoring</h3>
+                    <p class="text-sm text-gray-600 flex-grow">Architected a secure federated learning framework using satellite imagery, achieving 0.85 IoU.</p>
+                </div>
+                <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="cloud-cog"></i> Cloud Fake News Detection</h3>
+                    <p class="text-sm text-gray-600 flex-grow">Designed a serverless AWS solution (BERT/LSTM) with 94.9% accuracy and low latency.</p>
+                </div>
+                <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="credit-card"></i> Credit Card Fraud Detection</h3>
+                    <p class="text-sm text-gray-600 flex-grow">Built a PySpark/Airflow batch system achieving 94.9% accuracy with imbalanced data.</p>
+                </div>
+                 <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="brain-circuit"></i> GAN Educational Content</h3>
+                    <p class="text-sm text-gray-600 flex-grow">Researched GANs for education, enhancing comprehension scores by 24%.</p>
+                </div>
+                 <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="activity"></i> Physiological Stress Detection</h3>
+                    <p class="text-sm text-gray-600 flex-grow">Developed ML models (KNN, SVM, XGBoost) improving stress detection accuracy by 18%.</p>
+                </div>
+                 <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="users"></i> AI Consulting Platform</h3>
+                    <p class="text-sm text-gray-600 flex-grow">Built a Next.js/Node.js platform reducing client onboarding time by 35%.</p>
+                </div>
+                 <div class="project-card border border-gray-200 rounded-lg p-4 hover:shadow-lg transition duration-200 ease-in-out flex flex-col">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2 flex items-center"><i data-lucide="line-chart"></i> Marketing Analytics Dashboard</h3>
+                    <p class="text-sm text-gray-600 flex-grow">Integrated Alteryx, Power BI, SQL increasing campaign ROI by 22%.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="book-open-check"></i> Publications
+            </h2>
+            <ul class="space-y-4">
+                <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
+                    <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">A Big Data Optimization Comparison using Apache Spark and Apache Airflow, 2025 IEEE 15th Annual Computing and Communication Workshop and Conference</a>
+                </li>
+                <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
+                     <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets, 2025 IEEE 15th Annual Computing and Communication Workshop and Conference</a>
+                </li>
+                <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
+                    <a href="#" target="_blank" rel="noopener noreferrer" title="Link not available yet">VulnFusion: Exploiting Multimodal Representations for Smart Contract Vulnerability Detection, 2024 6th International Conference on Blockchain Computing and Applications (Citations: 1)</a>
+                </li>
+                 <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
+                    <a href="https://doi.org/10.1109/icccn61486.2024.10637655" target="_blank" rel="noopener noreferrer" class="text-gray-700">QuadraCode AI: Smart Contract Vulnerability Detection with Multimodal Representation, 2024 33rd International Conference on Computer Communications and Networks (Citations: 2)</a>
+                </li>
+                 <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
+                     <a href="https://doi.org/10.1109/intcec61833.2024.10602865" target="_blank" rel="noopener noreferrer" class="text-gray-700">Personalized stress detection from chest-worn sensors by leveraging machine learning, 2024 INTCEC (Citations: 1)</a>
+                </li>
+                 <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
+                     <a href="https://doi.org/10.1057/s41270-023-00239-1" target="_blank" rel="noopener noreferrer" class="text-gray-700">Cryptocurrency price and volatility predictions with machine learning, Journal of Marketing Analytics (Citations: 10)</a>
+                </li>
+                 <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
+                     <a href="https://doi.org/10.1016/j.mlwa.2023.100483" target="_blank" rel="noopener noreferrer" class="text-gray-700">Minimization of High Computational Cost in Data Preprocessing with MPI4Py, Machine Learning with Applications (Citations: 12)</a>
+                </li>
+                 <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="file-text"></i></span>
+                     <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=HaaPSSIAAAAJ&citation_for_view=HaaPSSIAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener noreferrer" class="text-gray-700">Prediction of Length-of-stay at ICU Using Machine Learning based on MIMIC-III Database, 2023 IEEE Conference on Artificial Intelligence (Citations: 12)</a>
+                </li>
+            </ul>
+        </section>
+
+        <section id="talks" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="presentation"></i> Talks & Conferences
+            </h2>
+            <ul class="space-y-4">
+                <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
+                    <span class="text-gray-700">Delivered findings on "Big Data Optimization Comparison using Apache Spark and Apache Airflow" at IEEE 15th Annual Computing and Communication Workshop, Las Vegas, USA, January 2025</span>
+                </li>
+                 <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
+                    <span class="text-gray-700">Showcased research on "Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets" at IEEE 15th Annual Computing and Communication Workshop, Las Vegas, USA, January 2025</span>
+                </li>
+                 <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
+                    <span class="text-gray-700">Demonstrated work on "Credit Card Batch Processing in Banking System" at International Conference on Advances in Computing Research, March 2024</span>
+                </li>
+                 <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
+                    <span class="text-gray-700">Introduced methodology for "CARLA Simulator to Train Deep Q Self-Driving Car for Campus Navigation" at IEEE International Conference on Big Data, Sorrento, Italy, December 2023</span>
+                </li>
+                 <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
+                    <span class="text-gray-700">Discussed innovations in "Scalable Multimodal Machine Learning for Cervical Cancer Detection" at IEEE World AI IoT Congress, 2024</span>
+                </li>
+                 <li class="flex items-start">
+                    <span class="list-item-icon"><i data-lucide="mic"></i></span>
+                    <span class="text-gray-700">Exhibited research on "Merged Blockchain and AI for Improved Healthcare Data Management" at ACM Mid-Southeast Conference, 2023</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="skills" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="cpu"></i> Technical Skills
+            </h2>
+            <div class="space-y-5">
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-3">Languages:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Python</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> JavaScript</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> C/C++</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> SQL</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Solidity</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> HTML/CSS</span>
+                         <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> LaTeX</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-3">Frameworks & Libraries:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> React</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Next.js</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Node.js</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> TensorFlow</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> PyTorch</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> PySpark</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Apache Airflow</span>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-3">Cloud & Tools:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> AWS (SageMaker, Lambda, S3, API Gateway)</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Google Cloud</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Alteryx</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Power BI</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> MongoDB</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Firebase</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Git</span>
+                    </div>
+                </div>
+                 <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-3">Domains:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Machine Learning</span>
+                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Computer Vision</span>
+                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Blockchain</span>
+                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Data Analytics</span>
+                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Federated Learning</span>
+                         <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> NLP</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="contact" class="bg-white p-6 md:p-8 rounded-lg shadow-md text-center">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center justify-center">
+                <i data-lucide="mail-plus"></i> Get In Touch
+            </h2>
+            <p class="text-gray-700 leading-relaxed mb-6 max-w-lg mx-auto">
+                I'm always open to discussing new projects, research collaborations, or opportunities. Feel free to reach out!
+            </p>
+            <div class="space-y-4">
+                 <a href="mailto:spoudel04@gmail.com" class="inline-flex items-center justify-center bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out w-full sm:w-auto">
+                    <i data-lucide="mail" class="mr-2"></i> Email: spoudel04@gmail.com
+                 </a>
+                 <p class="text-gray-600 flex items-center justify-center">
+                     <i data-lucide="phone" class="mr-2"></i> Mobile: +1-629-238-6838
+                 </p>
+            </div>
+             <div class="mt-8 flex justify-center space-x-6">
+                 <a href="#" class="text-gray-500 hover:text-indigo-600" title="LinkedIn (Link not provided)">
+                     <i data-lucide="linkedin" class="w-7 h-7"></i>
+                     <span class="sr-only">LinkedIn</span>
+                 </a>
+                 <a href="#" class="text-gray-500 hover:text-indigo-600" title="GitHub (Link not provided)">
+                     <i data-lucide="github" class="w-7 h-7"></i>
+                     <span class="sr-only">GitHub</span>
+                 </a>
+                 </div>
+         </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; <span id="current-year"></span> Samir Poudel. All Rights Reserved. Minimalist Portfolio Template.
+        </div>
+    </footer>
+
+    <script>
+        // Render Lucide icons
+        lucide.createIcons();
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Basic Mobile Menu Toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelectorAll('#mobile-menu a'); // Get all mobile nav links
+
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                 // Change menu icon based on state
+                 const menuIcon = menuButton.querySelector('i[data-lucide]');
+                 if (menuIcon) {
+                     menuIcon.setAttribute('data-lucide', mobileMenu.classList.contains('hidden') ? 'menu' : 'x');
+                     lucide.createIcons(); // Re-render icons after changing attribute
+                 }
+            });
+
+             // Close mobile menu when a link is clicked
+             navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        const menuIcon = menuButton.querySelector('i[data-lucide]');
+                        if (menuIcon) {
+                            menuIcon.setAttribute('data-lucide', 'menu');
+                            lucide.createIcons();
+                        }
+                    }
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>
