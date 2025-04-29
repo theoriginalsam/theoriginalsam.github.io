@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samir Poudel - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -274,6 +275,35 @@
             vertical-align: middle;
             margin-right: 0.3rem;
         }
+
+         /* Custom PDF icon style */
+      .pdf-icon {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        margin-right: 4px;
+      }
+      
+      .pdf-icon::before {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 14px;
+        background-color: #fff;
+        border: 1px solid currentColor;
+        border-radius: 1px;
+      }
+      
+      .pdf-icon::after {
+        content: 'PDF';
+        position: absolute;
+        font-size: 6px;
+        font-weight: bold;
+        color: #ef4444;
+      }
         
         h2 i[data-lucide] {
              width: 1.5rem;
