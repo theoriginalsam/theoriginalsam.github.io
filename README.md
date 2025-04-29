@@ -6,8 +6,5 @@ The website showcases experience, projects, publications, skills, and contact in
 
 **Live Site:** [https://theoriginalsam.github.io/](https://theoriginalsam.github.io/)
 
-*(Note: If you named your repository something other than `theoriginalsam.github.io`, replace the link above with `https://theoriginalsam.github.io/your-repository-name/`)*
-
----
 
 This site is built using plain HTML and styled with Tailwind CSS. It is deployed using GitHub Pages.
