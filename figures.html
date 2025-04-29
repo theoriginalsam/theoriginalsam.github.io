@@ -302,8 +302,8 @@
             </div>
         </section>
         
-        <!-- Contact for XML Files Section -->
-       <section id="request-xml" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+     <!-- Contact for XML Files Section -->
+<section id="request-xml" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
     <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
         <i data-lucide="file-code"></i> Request Draw.io XML Files
     </h2>
@@ -312,7 +312,7 @@
         for modification and reuse. Please fill out the form below to request specific XML files.
     </p>
     
-    <form id="xml-request-form" action="https://formspree.io/f/spoudel04@gmail.com" method="POST" class="space-y-6">
+    <form id="xml-request-form" action="https://formspree.io/f/xzbqzylb" method="POST" class="space-y-6">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
                 <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
@@ -320,7 +320,7 @@
             </div>
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
+                <input type="email" id="email" name="_replyto" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required>
             </div>
         </div>
         
@@ -331,7 +331,7 @@
         
         <div>
             <label for="purpose" class="block text-sm font-medium text-gray-700 mb-1">Purpose of Use</label>
-            <textarea id="purpose" name="purpose" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required></textarea>
+            <textarea id="purpose" name="message" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" required></textarea>
         </div>
         
         <!-- Hidden fields for Formspree -->
@@ -344,6 +344,16 @@
             </button>
         </div>
     </form>
+    
+    <!-- Success message (hidden by default) -->
+    <div id="form-success-message" class="hidden mt-6 p-4 border border-green-500 bg-green-50 text-green-700 rounded-md">
+        Thank you for your request! We'll send the XML files to your email shortly.
+    </div>
+    
+    <!-- Error message (hidden by default) -->
+    <div id="form-error-message" class="hidden mt-6 p-4 border border-red-500 bg-red-50 text-red-700 rounded-md">
+        There was a problem submitting your form. Please try again later.
+    </div>
 </section>
     </main>
 
@@ -424,7 +434,7 @@
             this.reset();
         });
     </script>
-    <script>
+   <script>
     // Function to handle XML file requests
     function requestXML(filename) {
         const requestedFilesInput = document.getElementById('requested-files');
@@ -442,48 +452,45 @@
         document.getElementById('request-xml').scrollIntoView({ behavior: 'smooth' });
     }
     
-    // Initialize form submission with Formspree
+    // Form submission handling
     var form = document.getElementById("xml-request-form");
+    var successMessage = document.getElementById("form-success-message");
+    var errorMessage = document.getElementById("form-error-message");
     
-    async function handleSubmit(event) {
+    form.addEventListener("submit", function(event) {
         event.preventDefault();
-        var status = document.createElement("div");
-        status.className = "mt-4 p-4 border rounded-md";
         
-        try {
-            var response = await fetch(event.target.action, {
-                method: form.method,
-                body: new FormData(form),
-                headers: {'Accept': 'application/json'}
-            });
+        // Submit the form with AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open(form.method, form.action, true);
+        xhr.setRequestHeader("Accept", "application/json");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return;
             
-            if (response.ok) {
-                // Success message
-                status.className += " border-green-500 bg-green-50 text-green-700";
-                status.innerHTML = "Thanks for your request! We'll send the XML files to your email shortly.";
+            if (xhr.status === 200) {
+                // Success
                 form.reset();
+                form.style.display = "none";
+                successMessage.classList.remove("hidden");
+                
+                // Reset form after 5 seconds
+                setTimeout(function() {
+                    form.style.display = "block";
+                    successMessage.classList.add("hidden");
+                }, 5000);
             } else {
-                // Error message
-                response = await response.json();
-                status.className += " border-red-500 bg-red-50 text-red-700";
-                status.innerHTML = "Oops! There was a problem submitting your form. " + (response.errors ? response.errors.map(error => error.message).join(", ") : "");
+                // Error
+                errorMessage.classList.remove("hidden");
+                
+                // Hide error message after 5 seconds
+                setTimeout(function() {
+                    errorMessage.classList.add("hidden");
+                }, 5000);
             }
-        } catch (error) {
-            // Network error message
-            status.className += " border-red-500 bg-red-50 text-red-700";
-            status.innerHTML = "Oops! There was a problem submitting your form. Please try again later.";
-        }
+        };
         
-        // Add status message to the form
-        form.appendChild(status);
-        
-        // Remove status message after 5 seconds
-        setTimeout(function() {
-            status.remove();
-        }, 5000);
-    }
-    
-    form.addEventListener("submit", handleSubmit);
+        xhr.send(new FormData(form));
+    });
 </script>
 </body>
 </html>
