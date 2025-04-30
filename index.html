@@ -18,64 +18,35 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-        }
-
+        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: transparent; /* Remove body background */
-            color: #7c3aed;
-            position: relative; /* Needed for absolute positioning of particles */
+            background-color: #f3f4f6;
+            color: #1f2937;
+            overflow-x: hidden;
         }
-
+        
         html {
             scroll-behavior: smooth;
         }
-
-        /* Particles.js background covering the whole page */
-        #particles-js {
-    position: fixed; /* Fixed position to cover the viewport */
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* Apply background to particles container */
-    z-index: -1; /* Place behind content */
-    filter: blur(1px); /* Add a little blur */
-}
-
-        /* Ensure content is above particles */
-        .content-wrap {
-            position: relative;
-            z-index: 1; /* Content layer above particles */
-        }
-
+        
         /* Hero section styles */
         .hero-container {
             position: relative;
             min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
-            
             overflow: hidden;
-            /* Background moved to #particles-js */
         }
-
-        /* Remove neural background styles as particles.js covers the whole page */
-        .neural-bg::before,
-        .neural-bg::after,
-        .neural-node,
-        .neural-node::before,
-        .neural-node::after {
-            display: none;
+        
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
         }
-
-
+        
         .content-wrapper {
             position: relative;
             z-index: 10;
@@ -85,10 +56,9 @@
             align-items: center;
             min-height: 100vh;
             padding: 2rem;
-            background: transparent; /* Ensure hero content background is transparent to show particles */
         }
-
-        /* Animated data paths - Keep if still desired over particles */
+        
+        /* Animated data paths */
         .data-path {
             position: absolute;
             width: 90%;
@@ -96,14 +66,13 @@
             background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
             animation: data-flow 8s infinite linear;
             opacity: 0.6;
-             z-index: 1; /* Ensure data paths are above particles but below content */
         }
-
+        
         @keyframes data-flow {
             0% { transform: translateX(-100%); }
             100% { transform: translateX(100%); }
         }
-
+        
         /* Avatar and name styles */
         .name-container {
             display: flex;
@@ -111,7 +80,7 @@
             margin-bottom: 2rem;
             position: relative;
         }
-
+        
         .avatar {
             position: relative;
             width: 150px;
@@ -123,17 +92,17 @@
             justify-content: center;
             align-items: center;
             transform: rotate(6deg);
-            box-shadow:
+            box-shadow: 
                 0 10px 25px rgba(99, 102, 241, 0.3),
                 0 -2px 10px rgba(255, 255, 255, 0.1) inset;
             animation: float 6s ease-in-out infinite;
         }
-
+        
         @keyframes float {
             0%, 100% { transform: rotate(6deg) translateY(0); }
             50% { transform: rotate(6deg) translateY(-10px); }
         }
-
+        
         .avatar::before {
             content: '';
             position: absolute;
@@ -144,19 +113,19 @@
             top: 0;
             left: 0;
         }
-
+        
         .avatar-text {
             color: white;
             font-size: 3.5rem;
             font-weight: 800;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-
+        
         .name-title {
             display: flex;
             flex-direction: column;
         }
-
+        
         h1 {
             font-size: 4rem;
             font-weight: 800;
@@ -166,18 +135,18 @@
             -webkit-text-fill-color: transparent;
             text-shadow: 0 2px 10px rgba(99, 102, 241, 0.3);
         }
-
+        
         /* Animated title styles */
         .title-animated {
             overflow: hidden;
             height: 35px;
             position: relative;
         }
-
+        
         .title-container {
             animation: change 12s infinite;
         }
-
+        
         @keyframes change {
             0%, 20% { transform: translateY(0); }
             25%, 45% { transform: translateY(-35px); }
@@ -185,7 +154,7 @@
             75%, 95% { transform: translateY(-105px); }
             100% { transform: translateY(0); }
         }
-
+        
         .title {
             height: 35px;
             font-size: 1.3rem;
@@ -194,12 +163,12 @@
             display: flex;
             align-items: center;
         }
-
+        
         .title i {
             margin-right: 10px;
             color: #6366f1;
         }
-
+        
         .decoration-line {
             height: 3px;
             width: 60px;
@@ -207,7 +176,7 @@
             margin: 1.5rem 0;
             border-radius: 2px;
         }
-
+        
         /* Content styling */
         .tagline {
             font-size: 1.2rem;
@@ -217,7 +186,7 @@
             color: rgba(255, 255, 255, 0.8);
             line-height: 1.6;
         }
-
+        
         .keywords {
             display: flex;
             flex-wrap: wrap;
@@ -226,7 +195,7 @@
             margin-bottom: 2.5rem;
             max-width: 700px;
         }
-
+        
         .keyword {
             background: rgba(99, 102, 241, 0.15);
             border: 1px solid rgba(99, 102, 241, 0.3);
@@ -238,12 +207,12 @@
             align-items: center;
             transition: all 0.3s ease;
         }
-
+        
         .keyword:hover {
             background: rgba(99, 102, 241, 0.3);
             transform: translateY(-3px);
         }
-
+        
         .keyword-dot {
             width: 6px;
             height: 6px;
@@ -251,7 +220,7 @@
             border-radius: 50%;
             margin-right: 8px;
         }
-
+        
         /* Button and links styles */
         .cta-button {
             background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
@@ -269,18 +238,18 @@
             box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
             text-decoration: none;
         }
-
+        
         .cta-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
         }
-
+        
         .social-links {
             display: flex;
             gap: 16px;
             margin-top: 1.5rem;
         }
-
+        
         .social-link {
             width: 40px;
             height: 40px;
@@ -291,12 +260,12 @@
             justify-content: center;
             transition: all 0.3s ease;
         }
-
+        
         .social-link:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-3px);
         }
-
+        
         /* Icon styles */
         i[data-lucide] {
             width: 1.25rem;
@@ -317,7 +286,7 @@
         height: 16px;
         margin-right: 4px;
       }
-
+      
       .pdf-icon::before {
         content: '';
         position: absolute;
@@ -327,7 +296,7 @@
         border: 1px solid currentColor;
         border-radius: 1px;
       }
-
+      
       .pdf-icon::after {
         content: 'PDF';
         position: absolute;
@@ -335,39 +304,39 @@
         font-weight: bold;
         color: #ef4444;
       }
-
+        
         h2 i[data-lucide] {
              width: 1.5rem;
              height: 1.5rem;
              margin-right: 0.6rem;
         }
-
+        
         header i[data-lucide] {
              width: 1rem;
              height: 1rem;
              margin-right: 0.25rem;
         }
-
+        
         .card-base i[data-lucide] {
             width: 1.1rem;
             height: 1.1rem;
             margin-right: 0.25rem;
             flex-shrink: 0;
         }
-
+        
         .skill-tag i[data-lucide] {
             width: 1rem;
             height: 1rem;
             margin-right: 0.25rem;
         }
-
+        
         .social-link i {
             color: white;
             width: 20px;
             height: 20px;
         }
-
-        /* Card styles - Ensure they have a solid background */
+        
+        /* Card styles */
         .card-base {
             border: 1px solid #e5e7eb;
             border-radius: 0.5rem;
@@ -376,13 +345,13 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            background-color: #ffffff; /* Solid background */
+            background-color: #ffffff;
         }
-
+        
         .card-base:hover {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         }
-
+        
         .card-title {
             font-size: 1.125rem;
             font-weight: 600;
@@ -391,19 +360,19 @@
             display: flex;
             align-items: center;
         }
-
+        
         .card-content {
             font-size: 0.875rem;
             color: #4b5563;
             flex-grow: 1;
         }
-
+        
         .card-footer {
             font-size: 0.75rem;
-            color: #111827;
+            color: #6b7280;
             margin-top: 0.75rem;
         }
-
+        
         /* Publication link styling */
         .publication-card a {
             color: #374151;
@@ -411,70 +380,61 @@
             transition: color 0.15s ease-in-out, text-decoration 0.15s ease-in-out;
             display: inline-block;
         }
-
+        
         .publication-card a:hover {
             color: #4f46e5;
             text-decoration: underline;
         }
-
+        
         .publication-card a[href="#"] {
              color: #6b7280;
              cursor: default;
              text-decoration: none;
         }
-
+        
         .publication-card a[href="#"]:hover {
              color: #6b7280;
              text-decoration: none;
         }
-
-        /* Section styles - Ensure sections have a solid background */
+        
+        /* Section styles */
         section[id] {
             scroll-margin-top: 5rem;
-            background-color: #ffffff; /* Solid background */
-            padding: 1.5rem; /* Add padding */
-            border-radius: 0.5rem; /* Add border-radius */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Add subtle shadow */
         }
-
-         /* Apply solid background to sections within main */
-        main section {
-            background-color: #ffffff;
-        }
-
+        
         /* Responsive styles */
         @media (max-width: 768px) {
             h1 {
                 font-size: 3rem;
             }
-
+            
             .name-container {
                 flex-direction: column;
                 text-align: center;
             }
-
+            
             .avatar {
                 margin-right: 0;
                 margin-bottom: 1.5rem;
                 width: 120px;
                 height: 120px;
             }
-
+            
             .avatar-text {
                 font-size: 2.8rem;
             }
-
+            
             .title-animated {
                 height: 30px;
             }
-
+            
             .title {
                 height: 30px;
                 font-size: 1.1rem;
                 line-height: 30px;
                 justify-content: center;
             }
-
+            
             @keyframes change {
                 0%, 20% { transform: translateY(0); }
                 25%, 45% { transform: translateY(-30px); }
@@ -482,7 +442,7 @@
                 75%, 95% { transform: translateY(-90px); }
                 100% { transform: translateY(0); }
             }
-
+            
             .decoration-line {
                 margin: 1rem auto;
             }
@@ -490,530 +450,569 @@
     </style>
 </head>
 <body>
-    <div id="particles-js"></div>
-
-    <div class="content-wrap">
-        <nav class="bg-white shadow-md sticky top-0 z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-16">
-                    <div class="flex-shrink-0 flex items-center">
-                        <a href="#" class="text-2xl font-bold text-indigo-600 bg-indigo-100 rounded-md px-3 py-1 hover:bg-indigo-200 transition duration-150">SP</a>
-                    </div>
-                    <div class="hidden md:flex space-x-6">
-                        <a href="#about" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">About</a>
-                        <a href="#experience" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Experience</a>
-                        <a href="#projects" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Projects</a>
-                        <a href="#publications" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Publications</a>
-                        <a href="#talks" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Talks</a>
-                        <a href="#skills" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Skills</a>
-                        <a href="#contact" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Contact</a>
-                    </div>
-                    <div class="md:hidden flex items-center">
-                        <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700">
-                            <i data-lucide="menu"></i>
-                        </button>
-                    </div>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-indigo-600 bg-indigo-100 rounded-md px-3 py-1 hover:bg-indigo-200 transition duration-150">SP</a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#about" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">About</a>
+                    <a href="#experience" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Experience</a>
+                    <a href="#projects" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Projects</a>
+                    <a href="#publications" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Publications</a>
+                    <a href="#talks" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Talks</a>
+                    <a href="#skills" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Skills</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition duration-150 ease-in-out">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700">
+                        <i data-lucide="menu"></i>
+                    </button>
                 </div>
             </div>
-            <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
-                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                    <a href="#about" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">About</a>
-                    <a href="#experience" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Experience</a>
-                    <a href="#projects" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Projects</a>
-                    <a href="#publications" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Publications</a>
-                    <a href="#talks" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Talks</a>
-                    <a href="#skills" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Skills</a>
-                    <a href="#contact" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Contact</a>
-                </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#experience" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Experience</a>
+                <a href="#projects" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#publications" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Publications</a>
+                <a href="#talks" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Talks</a>
+                <a href="#skills" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Skills</a>
+                <a href="#contact" class="block text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium">Contact</a>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <header class="bg-g text-black relative overflow-hidden">
-            <div class="floating-objects-container">
-                <div class="floating-object"></div>
-                <div class="floating-object"></div>
-                <div class="floating-object"></div>
-                <div class="floating-object"></div>
-                <div class="floating-object"></div>
-                <div class="floating-object"></div>
-                <div class="floating-object"></div>
-                <div class="floating-object"></div>
-                <div class="floating-object"></div>
-                <div class="floating-object"></div>
-            </div>
-
-            <section class="hero-container">
-                <div class="data-path" style="top: 25%; transform: rotate(-5deg);"></div>
-                <div class="data-path" style="top: 45%; transform: rotate(3deg);"></div>
-                <div class="data-path" style="top: 65%; transform: rotate(-2deg);"></div>
-
-
-                <div class="content-wrapper">
-                    <div class="name-container">
-                        <div class="avatar">
-                            <span class="avatar-text">SP</span>
-                        </div>
-                        <div class="name-title">
-                            <h1 class="text">Samir Poudel</h1>
-                            <div class="decoration-line"></div>
-                            <div class="title-animated">
-                                <div class="title-container">
-                                    <div class="title">
-                                        <i data-lucide="brain-circuit"></i>
-                                        Ph.D. Candidate in Computational Science
-                                    </div>
-                                    <div class="title">
-                                        <i data-lucide="atom"></i>
-                                        Distributed Machine Learning
-                                    </div>
-                                    <div class="title">
-                                        <i data-lucide="code"></i>
-                                        Security
-                                    </div>
-                                    <div class="title">
-                                        <i data-lucide="chart"></i>
-                                        Data Scientist and Software Engineer
-                                    </div>
+    <!-- Header/Hero Section -->
+    <header class="bg-gradient-to-r from-indigo-600 to-purple-700 text-white">
+        <section class="hero-container">
+            <!-- Decorative data paths -->
+            <div class="data-path" style="top: 25%; transform: rotate(-5deg);"></div>
+            <div class="data-path" style="top: 45%; transform: rotate(3deg);"></div>
+            <div class="data-path" style="top: 65%; transform: rotate(-2deg);"></div>
+            
+            <!-- Particles.js background -->
+            <div id="particles-js"></div>
+            
+            <div class="content-wrapper">
+                <div class="name-container">
+                    <div class="avatar">
+                        <span class="avatar-text">SP</span>
+                    </div>
+                    <div class="name-title">
+                        <h1>Samir Poudel</h1>
+                        <div class="decoration-line"></div>
+                        <div class="title-animated">
+                            <div class="title-container">
+                                <div class="title">
+                                    <i data-lucide="brain-circuit"></i>
+                                    Ph.D. Candidate in Computational Science
+                                </div>
+                                <div class="title">
+                                    <i data-lucide="atom"></i>
+                                    Distributed Machine Learning 
+                                </div>
+                                <div class="title">
+                                    <i data-lucide="code"></i>
+                                    Security
+                                </div>
+                                <div class="title">
+                                    <i data-lucide="chart"></i>
+                                    Data Scientist and Software Engineer
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <p class="tagline">Exploring the intersection of computational methods and data science to solve complex problems through innovative machine learning approaches.</p>
-
-                    <div class="keywords">
-                        <div class="keyword"><span class="keyword-dot"></span>Deep Learning</div>
-                        <div class="keyword"><span class="keyword-dot"></span>Secure Software System</div>
-                        <div class="keyword"><span class="keyword-dot"></span>Federated Learning</div>
-                        <div class="keyword"><span class="keyword-dot"></span>Big Data Analytics</div>
-                        <div class="keyword"><span class="keyword-dot"></span>Blockchain</div>
-                        <div class="keyword"><span class="keyword-dot"></span>Cyber Security</div>
-                    </div>
-
-                    <a href="#contact" class="cta-button">
-                        <i data-lucide="mail"></i>
-                        Get In Touch
-                    </a>
-
                 </div>
-            </section>
-        </header>
-
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-16">
-            <section id="about" class="p-6 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
-                    <i data-lucide="user-round"></i> About Me
-                </h2>
-                <p class="text-gray-700 leading-relaxed mb-4">
-                    Highly motivated Ph.D. candidate in Computational and Data Science at Middle Tennessee State University with a strong foundation in Software Engineering. Passionate about leveraging machine learning, data analytics, and cloud technologies to solve complex problems.
-                </p>
-                <p class="text-gray-700 leading-relaxed">
-                    Experienced in developing and deploying ML models, conducting research in areas like backdoor detection, privacy-preserving learning, and fake news detection. Proven ability to translate data into actionable insights and contribute to cutting-edge research projects. Seeking opportunities to apply expertise in challenging and impactful roles.
-                </p>
-            </section>
-
-            <section id="experience" class="p-6 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
-                    <i data-lucide="briefcase"></i> Experience
-                </h2>
-                <div class="space-y-8">
-                    <div class="border-l-4 border-indigo-500 pl-6">
-                        <h3 class="text-xl font-semibold text-gray-800">Graduate Research Assistant</h3>
-                        <p class="text-sm text-gray-500 mb-2 flex items-center flex-wrap">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>Middle Tennessee State University (MTSU), Murfreesboro, TN |
-                            <i data-lucide="calendar-days" class="w-4 h-4 ml-2 mr-1"></i>Aug 2023 – Present
-                        </p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm pl-2">
-                            <li>Contribute to machine learning and LLM research projects.</li>
-                            <li>Utilize models like BERT and SVM, accelerating analysis workflows.</li>
-                            <li>Leverage Alteryx and PowerBI for data operations and insights, securing research funding.</li>
-                        </ul>
-                    </div>
-                    <div class="border-l-4 border-indigo-500 pl-6">
-                        <h3 class="text-xl font-semibold text-gray-800">Data Analyst</h3>
-                        <p class="text-sm text-gray-500 mb-2 flex items-center flex-wrap">
-                            <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>Urja Tech, Pokhara, Nepal |
-                            <i data-lucide="calendar-days" class="w-4 h-4 ml-2 mr-1"></i>Feb 2018 – March 2022
-                        </p>
-                        <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm pl-2">
-                            <li>Led data analysis initiatives, boosting operational efficiency.</li>
-                            <li>Architected SQL databases and Tableau dashboards to enhance decision-making.</li>
-                            <li>Applied statistical methods and predictive modeling for business forecasting.</li>
-                        </ul>
-                    </div>
+                
+                <p class="tagline">Exploring the intersection of computational methods and data science to solve complex problems through innovative machine learning approaches.</p>
+                
+                <div class="keywords">
+                    <div class="keyword"><span class="keyword-dot"></span>Deep Learning</div>
+                    <div class="keyword"><span class="keyword-dot"></span>Secure Software System</div>
+                    <div class="keyword"><span class="keyword-dot"></span>Federated Learning</div>
+                    <div class="keyword"><span class="keyword-dot"></span>Big Data Analytics</div>
+                    <div class="keyword"><span class="keyword-dot"></span>Blockchain</div>
+                    <div class="keyword"><span class="keyword-dot"></span>Cyber Security</div>
                 </div>
-            </section>
-            <section id="publications" class="p-6 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
-                    <i data-lucide="book-open-check"></i> Publications
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> Big Data Optimization</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1109/CCWC56545.2025.10638301" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    A Big Data Optimization Comparison using Apache Spark and Apache Airflow
-                                </a>
-                                <a href="publications/1.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                        </p>
-                        <p class="card-footer">2025 IEEE 15th Annual Computing and Communication Workshop and Conference</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> Blockchain in Gaming</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1109/CCWC56545.2025.10638302" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets
-                                </a>
-                                <a href="publications/2.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                        </p>
-                        <p class="card-footer">2025 IEEE 15th Annual Computing and Communication Workshop and Conference</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> VulnFusion</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1109/BCCA59294.2024.10639203" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    VulnFusion: Exploiting Multimodal Representations for Advanced Smart Contract Vulnerability Detection
-                                </a>
-                                <a href="publications/3.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 1)</span>
-                        </p>
-                        <p class="card-footer">2024 6th International Conference on Blockchain Computing and Applications</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> QuadraCode AI</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1109/icccn61486.2024.10637655" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    QuadraCode AI: Smart Contract Vulnerability Detection with Multimodal Representation
-                                </a>
-                                <a href="publications/4.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 2)</span>
-                        </p>
-                        <p class="card-footer">2024 33rd International Conference on Computer Communications and Networks</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> Personalized Stress Detection</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1109/intcec61833.2024.10602865" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    Personalized stress detection from chest-worn sensors by leveraging machine learning
-                                </a>
-                                <a href="publications/5.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 1)</span>
-                        </p>
-                        <p class="card-footer">2024 INTCEC</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> Scalable Multimodal ML</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1109/AIIoT56868.2024.10639887" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    Scalable Multimodal Machine Learning for Cervical Cancer Detection
-                                </a>
-                                <a href="publications/6.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 1)</span>
-                        </p>
-                        <p class="card-footer">2024 IEEE World AI IoT Congress</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> Credit Card Batch Processing</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1007/978-981-99-5316-7_8" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    Credit Card Batch Processing in Banking System
-                                </a>
-                                <a href="publications/7.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 3)</span>
-                        </p>
-                        <p class="card-footer">International Conference on Advances in Computing Research</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> CARLA Simulator</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1109/BigData59044.2023.10386952" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    Using the CARLA simulator to train a deep Q self-driving car to control a real-world counterpart on a college campus
-                                </a>
-                                <a href="publications/8.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 4)</span>
-                        </p>
-                        <p class="card-footer">2023 IEEE International Conference on Big Data</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> Mental Workload Classification</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1109/SPMB56733.2023.10409242" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    Mental workload classification from fNIRS signals by leveraging machine learning
-                                </a>
-                                <a href="publications/9.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 10)</span>
-                        </p>
-                        <p class="card-footer">2023 IEEE Signal Processing in Medicine and Biology Symposium</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> Alzheimer's Classification</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1109/SPMB56733.2023.10409236" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    Improved classification of Alzheimer's disease with convolutional neural networks
-                                </a>
-                                <a href="publications/10.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 6)</span>
-                        </p>
-                        <p class="card-footer">2023 IEEE Signal Processing in Medicine and Biology Symposium</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> Cryptocurrency Prediction</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1057/s41270-023-00239-1" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    Cryptocurrency price and volatility predictions with machine learning
-                                </a>
-                                <a href="publications/11.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 10)</span>
-                        </p>
-                        <p class="card-footer">Journal of Marketing Analytics</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> MPI4Py Cost Minimization</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1016/j.mlwa.2023.100483" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    Minimization of High Computational Cost in Data Preprocessing with MPI4Py
-                                </a>
-                                <a href="publications/12.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 12)</span>
-                        </p>
-                        <p class="card-footer">Machine Learning with Applications</p>
-                    </div>
-                    <div class="card-base publication-card">
-                        <h3 class="card-title"><i data-lucide="file-text"></i> ICU Length-of-Stay</h3>
-                        <p class="card-content">
-                            <span class="flex items-start justify-between">
-                                <a href="https://doi.org/10.1109/CAI56837.2023.10136551" target="_blank" rel="noopener noreferrer" class="flex-grow">
-                                    Prediction of Length-of-stay at ICU Using Machine Learning based on MIMIC-III Database
-                                </a>
-                                <a href="publications/13.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
-                                    PDF
-                                </a>
-                            </span>
-                            <span class="text-gray-500 text-sm">(Citations: 12)</span>
-                        </p>
-                        <p class="card-footer">2023 IEEE Conference on Artificial Intelligence</p>
-                    </div>
-                </div>
-            </section>
-            <section id="talks" class="p-6 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
-                    <i data-lucide="presentation"></i> Talks & Conferences
-                </h2>
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                     <div class="card-base talk-card">
-                        <h3 class="card-title"><i data-lucide="mic"></i> IEEE CCWC 2025 (Big Data)</h3>
-                        <p class="card-content">Delivered findings on "Big Data Optimization Comparison using Apache Spark and Apache Airflow".</p>
-                        <p class="card-footer">Las Vegas, USA, January 2025</p>
-                     </div>
-                     <div class="card-base talk-card">
-                        <h3 class="card-title"><i data-lucide="mic"></i> IEEE CCWC 2025 (Blockchain)</h3>
-                        <p class="card-content">Showcased research on "Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets".</p>
-                        <p class="card-footer">Las Vegas, USA, January 2025</p>
-                     </div>
-                     <div class="card-base talk-card">
-                        <h3 class="card-title"><i data-lucide="mic"></i> Int. Conf. Advances in Computing Research</h3>
-                        <p class="card-content">Demonstrated work on "Credit Card Batch Processing in Banking System".</p>
-                        <p class="card-footer">March 2024</p>
-                     </div>
-                     <div class="card-base talk-card">
-                        <h3 class="card-title"><i data-lucide="mic"></i> IEEE Int. Conf. on Big Data</h3>
-                        <p class="card-content">Introduced methodology for "CARLA Simulator to Train Deep Q Self-Driving Car for Campus Navigation".</p>
-                        <p class="card-footer">Sorrento, Italy, December 2023</p>
-                     </div>
-                     <div class="card-base talk-card">
-                        <h3 class="card-title"><i data-lucide="mic"></i> IEEE World AI IoT Congress</h3>
-                        <p class="card-content">Discussed innovations in "Scalable Multimodal Machine Learning for Cervical Cancer Detection".</p>
-                        <p class="card-footer">2024</p>
-                     </div>
-                     <div class="card-base talk-card">
-                        <h3 class="card-title"><i data-lucide="mic"></i> ACM Mid-Southeast Conference</h3>
-                        <p class="card-content">Exhibited research on "Merged Blockchain and AI for Improved Healthcare Data Management".</p>
-                        <p class="card-footer">2023</p>
-                     </div>
-                 </div>
-            </section>
-
-            <section id="figures" class="p-6 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
-                    <i data-lucide="chart"></i> Research Figures
-                </h2>
-                <p class="text-gray-700 leading-relaxed mb-6">
-                    I've created various diagrams and visualizations to illustrate concepts in my research work. These figures help communicate complex ideas in machine learning, distributed systems, and security.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="card-base">
-                        <h3 class="card-title"><i data-lucide="bar-chart-4"></i> Federated Learning Architecture</h3>
-                        <div class="bg-gray-100 rounded-md p-2 mb-3 overflow-hidden h-32 flex items-center justify-center">
-                            <img src="figures/federated-learning-architecture.png" alt="Federated Learning Architecture" class="max-h-full object-contain">
-                        </div>
-                        <p class="card-content text-sm">Architecture diagram for our privacy-preserving federated learning framework.</p>
-                    </div>
-
-                    <div class="card-base">
-                        <h3 class="card-title"><i data-lucide="bar-chart-4"></i> Backdoor Detection Framework</h3>
-                        <div class="bg-gray-100 rounded-md p-2 mb-3 overflow-hidden h-32 flex items-center justify-center">
-                            <img src="figures/backdoor-detection-framework.png" alt="Backdoor Detection Framework" class="max-h-full object-contain">
-                        </div>
-                        <p class="card-content text-sm">Visualization of our approach to detecting backdoor attacks in distributed ML.</p>
-                    </div>
-
-                    <div class="card-base">
-                        <h3 class="card-title"><i data-lucide="bar-chart-4"></i> More Diagrams</h3>
-                        <div class="bg-gray-100 rounded-md p-2 mb-3 overflow-hidden h-32 flex items-center justify-center">
-                            <div class="text-center">
-                                <i data-lucide="image-plus" class="w-16 h-16 mx-auto text-gray-400"></i>
-                            </div>
-                        </div>
-                        <p class="card-content text-sm">View more research diagrams and request diagram XML files for adaptation.</p>
-                    </div>
-                </div>
-
-                <div class="mt-6 text-center">
-                    <a href="figures.html" class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white font-medium rounded hover:bg-indigo-700 transition duration-150 ease-in-out">
-                        <i data-lucide="external-link" class="mr-2"></i> View All Research Figures
-                    </a>
-                </div>
-            </section>
-
-            <section id="skills" class="p-6 md:p-8 rounded-lg shadow-md">
-                <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
-                    <i data-lucide="cpu"></i> Technical Skills
-                </h2>
-                <div class="space-y-5">
-                    <div>
-                        <h3 class="text-lg font-medium text-gray-700 mb-3">Languages:</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Python</span>
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> JavaScript</span>
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> C/C++</span>
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> SQL</span>
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Solidity</span>
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> HTML/CSS</span>
-                            <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> LaTeX</span>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-medium text-gray-700 mb-3">Frameworks & Libraries:</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> React</span>
-                            <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Next.js</span>
-                            <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Node.js</span>
-                            <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> TensorFlow</span>
-                            <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> PyTorch</span>
-                            <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> PySpark</span>
-                            <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Apache Airflow</span>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-medium text-gray-700 mb-3">Cloud & Tools:</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> AWS (SageMaker, Lambda, S3, API Gateway)</span>
-                            <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Google Cloud</span>
-                            <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Alteryx</span>
-                            <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Power BI</span>
-                            <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> MongoDB</span>
-                            <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Firebase</span>
-                            <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Git</span>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-medium text-gray-700 mb-3">Domains:</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Machine Learning</span>
-                            <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Computer Vision</span>
-                            <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Blockchain</span>
-                            <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Data Analytics</span>
-                            <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Federated Learning</span>
-                            <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> NLP</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <section id="contact" class="p-6 md:p-8 rounded-lg shadow-md text-center">
-                <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center justify-center">
-                    <i data-lucide="mail-plus"></i> Get In Touch
-                </h2>
-                <p class="text-gray-700 leading-relaxed mb-6 max-w-lg mx-auto">
-                    I'm always open to discussing new projects, research collaborations, or opportunities. Feel free to reach out!
-                </p>
-                <div class="space-y-4">
-                    <a href="mailto:spoudel04@gmail.com" class="inline-flex items-center justify-center bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out w-full sm:w-auto">
-                        <i data-lucide="mail" class="mr-2"></i> Email: spoudel04@gmail.com
-                    </a>
-                    <p class="text-gray-600 flex items-center justify-center">
-                        <i data-lucide="phone" class="mr-2"></i> Mobile: +1-629-238-6838
-                    </p>
-                </div>
-                <div class="mt-8 flex justify-center space-x-6">
-                    <a href="#" class="text-gray-500 hover:text-indigo-600" title="LinkedIn (Link not provided)">
-                        <i data-lucide="linkedin" class="w-7 h-7"></i>
-                        <span class="sr-only">LinkedIn</span>
-                    </a>
-                    <a href="#" class="text-gray-500 hover:text-indigo-600" title="GitHub (Link not provided)">
-                        <i data-lucide="github" class="w-7 h-7"></i>
-                        <span class="sr-only">GitHub</span>
-                    </a>
-                </div>
-            </section>
-        </main>
-
-        <footer class="bg-white text-gray-800 py-6 mt-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-                &copy; <span id="current-year"></span> Samir Poudel. All Rights Reserved.
+                
+                <a href="#contact" class="cta-button">
+                    <i data-lucide="mail"></i>
+                    Get In Touch
+                </a>
+                
             </div>
-        </footer>
-    </div> <script>
+        </section>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-16">
+        <!-- About Section -->
+        <section id="about" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="user-round"></i> About Me
+            </h2>
+            <p class="text-gray-700 leading-relaxed mb-4">
+                Highly motivated Ph.D. candidate in Computational and Data Science at Middle Tennessee State University with a strong foundation in Software Engineering. Passionate about leveraging machine learning, data analytics, and cloud technologies to solve complex problems.
+            </p>
+            <p class="text-gray-700 leading-relaxed">
+                Experienced in developing and deploying ML models, conducting research in areas like backdoor detection, privacy-preserving learning, and fake news detection. Proven ability to translate data into actionable insights and contribute to cutting-edge research projects. Seeking opportunities to apply expertise in challenging and impactful roles.
+            </p>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="briefcase"></i> Experience
+            </h2>
+            <div class="space-y-8">
+                <div class="border-l-4 border-indigo-500 pl-6">
+                    <h3 class="text-xl font-semibold text-gray-800">Graduate Research Assistant</h3>
+                    <p class="text-sm text-gray-500 mb-2 flex items-center flex-wrap">
+                        <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>Middle Tennessee State University (MTSU), Murfreesboro, TN | 
+                        <i data-lucide="calendar-days" class="w-4 h-4 ml-2 mr-1"></i>Aug 2023 – Present
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm pl-2">
+                        <li>Contribute to machine learning and LLM research projects.</li>
+                        <li>Utilize models like BERT and SVM, accelerating analysis workflows.</li>
+                        <li>Leverage Alteryx and PowerBI for data operations and insights, securing research funding.</li>
+                    </ul>
+                </div>
+                <div class="border-l-4 border-indigo-500 pl-6">
+                    <h3 class="text-xl font-semibold text-gray-800">Data Analyst</h3>
+                    <p class="text-sm text-gray-500 mb-2 flex items-center flex-wrap">
+                        <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>Urja Tech, Pokhara, Nepal | 
+                        <i data-lucide="calendar-days" class="w-4 h-4 ml-2 mr-1"></i>Feb 2018 – March 2022
+                    </p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1 text-sm pl-2">
+                        <li>Led data analysis initiatives, boosting operational efficiency.</li>
+                        <li>Architected SQL databases and Tableau dashboards to enhance decision-making.</li>
+                        <li>Applied statistical methods and predictive modeling for business forecasting.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="code-xml"></i> Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="shield-check"></i> Edge-Case Backdoor Detection</h3>
+                    <p class="card-content">Developed a defense framework for distributed ML, reducing attack success rates below 15%.</p>
+                </div>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="lock-keyhole"></i> Privacy-Preserving Monitoring</h3>
+                    <p class="card-content">Architected a secure federated learning framework using satellite imagery, achieving 0.85 IoU.</p>
+                </div>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="cloud-cog"></i> Cloud Fake News Detection</h3>
+                    <p class="card-content">Designed a serverless AWS solution (BERT/LSTM) with 94.9% accuracy and low latency.</p>
+                </div>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="credit-card"></i> Credit Card Fraud Detection</h3>
+                    <p class="card-content">Built a PySpark/Airflow batch system achieving 94.9% accuracy with imbalanced data.</p>
+                </div>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="brain-circuit"></i> GAN Educational Content</h3>
+                    <p class="card-content">Researched GANs for education, enhancing comprehension scores by 24%.</p>
+                </div>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="activity"></i> Physiological Stress Detection</h3>
+                    <p class="card-content">Developed ML models (KNN, SVM, XGBoost) improving stress detection accuracy by 18%.</p>
+                </div>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="users"></i> AI Consulting Platform</h3>
+                    <p class="card-content">Built a Next.js/Node.js platform reducing client onboarding time by 35%.</p>
+                </div>
+                <div class="card-base project-card">
+                    <h3 class="card-title"><i data-lucide="line-chart"></i> Marketing Analytics Dashboard</h3>
+                    <p class="card-content">Integrated Alteryx, Power BI, SQL increasing campaign ROI by 22%.</p>
+                </div>
+            </div>
+        </section>
+<section id="publications" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+        <i data-lucide="book-open-check"></i> Publications
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> Big Data Optimization</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1109/CCWC56545.2025.10638301" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        A Big Data Optimization Comparison using Apache Spark and Apache Airflow
+                    </a>
+                    <a href="publications/1.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+            </p>
+            <p class="card-footer">2025 IEEE 15th Annual Computing and Communication Workshop and Conference</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> Blockchain in Gaming</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1109/CCWC56545.2025.10638302" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets
+                    </a>
+                    <a href="publications/2.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+            </p>
+            <p class="card-footer">2025 IEEE 15th Annual Computing and Communication Workshop and Conference</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> VulnFusion</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1109/BCCA59294.2024.10639203" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        VulnFusion: Exploiting Multimodal Representations for Advanced Smart Contract Vulnerability Detection
+                    </a>
+                    <a href="publications/3.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 1)</span>
+            </p>
+            <p class="card-footer">2024 6th International Conference on Blockchain Computing and Applications</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> QuadraCode AI</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1109/icccn61486.2024.10637655" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        QuadraCode AI: Smart Contract Vulnerability Detection with Multimodal Representation
+                    </a>
+                    <a href="publications/4.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 2)</span>
+            </p>
+            <p class="card-footer">2024 33rd International Conference on Computer Communications and Networks</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> Personalized Stress Detection</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1109/intcec61833.2024.10602865" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        Personalized stress detection from chest-worn sensors by leveraging machine learning
+                    </a>
+                    <a href="publications/5.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 1)</span>
+            </p>
+            <p class="card-footer">2024 INTCEC</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> Scalable Multimodal ML</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1109/AIIoT56868.2024.10639887" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        Scalable Multimodal Machine Learning for Cervical Cancer Detection
+                    </a>
+                    <a href="publications/6.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 1)</span>
+            </p>
+            <p class="card-footer">2024 IEEE World AI IoT Congress</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> Credit Card Batch Processing</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1007/978-981-99-5316-7_8" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        Credit Card Batch Processing in Banking System
+                    </a>
+                    <a href="publications/7.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 3)</span>
+            </p>
+            <p class="card-footer">International Conference on Advances in Computing Research</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> CARLA Simulator</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1109/BigData59044.2023.10386952" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        Using the CARLA simulator to train a deep Q self-driving car to control a real-world counterpart on a college campus
+                    </a>
+                    <a href="publications/8.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 4)</span>
+            </p>
+            <p class="card-footer">2023 IEEE International Conference on Big Data</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> Mental Workload Classification</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1109/SPMB56733.2023.10409242" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        Mental workload classification from fNIRS signals by leveraging machine learning
+                    </a>
+                    <a href="publications/9.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 10)</span>
+            </p>
+            <p class="card-footer">2023 IEEE Signal Processing in Medicine and Biology Symposium</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> Alzheimer's Classification</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1109/SPMB56733.2023.10409236" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        Improved classification of Alzheimer's disease with convolutional neural networks
+                    </a>
+                    <a href="publications/10.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 6)</span>
+            </p>
+            <p class="card-footer">2023 IEEE Signal Processing in Medicine and Biology Symposium</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> Cryptocurrency Prediction</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1057/s41270-023-00239-1" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        Cryptocurrency price and volatility predictions with machine learning
+                    </a>
+                    <a href="publications/11.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 10)</span>
+            </p>
+            <p class="card-footer">Journal of Marketing Analytics</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> MPI4Py Cost Minimization</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1016/j.mlwa.2023.100483" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        Minimization of High Computational Cost in Data Preprocessing with MPI4Py
+                    </a>
+                    <a href="publications/12.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 12)</span>
+            </p>
+            <p class="card-footer">Machine Learning with Applications</p>
+        </div>
+        <div class="card-base publication-card">
+            <h3 class="card-title"><i data-lucide="file-text"></i> ICU Length-of-Stay</h3>
+            <p class="card-content">
+                <span class="flex items-start justify-between">
+                    <a href="https://doi.org/10.1109/CAI56837.2023.10136551" target="_blank" rel="noopener noreferrer" class="flex-grow">
+                        Prediction of Length-of-stay at ICU Using Machine Learning based on MIMIC-III Database
+                    </a>
+                    <a href="publications/13.pdf" class="ml-2 inline-flex items-center px-3 py-1 bg-gray-200 text-gray-800 text-xs font-medium rounded hover:bg-gray-300 transition duration-150 ease-in-out" download>
+                        PDF
+                    </a>
+                </span>
+                <span class="text-gray-500 text-sm">(Citations: 12)</span>
+            </p>
+            <p class="card-footer">2023 IEEE Conference on Artificial Intelligence</p>
+        </div>
+    </div>
+</section>
+
+        <!-- Figures Section to add to your main page -->
+<section id="figures" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+        <i data-lucide="chart"></i> Research Figures
+    </h2>
+    <p class="text-gray-700 leading-relaxed mb-6">
+        I've created various diagrams and visualizations to illustrate concepts in my research work. These figures help communicate complex ideas in machine learning, distributed systems, and security.
+    </p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card-base">
+            <h3 class="card-title"><i data-lucide="bar-chart-4"></i> Federated Learning Architecture</h3>
+            <div class="bg-gray-100 rounded-md p-2 mb-3 overflow-hidden h-32 flex items-center justify-center">
+                <img src="figures/federated-learning-architecture.png" alt="Federated Learning Architecture" class="max-h-full object-contain">
+            </div>
+            <p class="card-content text-sm">Architecture diagram for our privacy-preserving federated learning framework for Environmental Monitoring.</p>
+        </div>
+        
+        <div class="card-base">
+            <h3 class="card-title"><i data-lucide="bar-chart-4"></i>Unet Architecture for Environmental Monitoring</h3>
+            <div class="bg-gray-100 rounded-md p-2 mb-3 overflow-hidden h-32 flex items-center justify-center">
+                <img src="figures/unetem.png" alt="Backdoor Detection Framework" class="max-h-full object-contain">
+            </div>
+            <p class="card-content text-sm">Visualization of our modified UNET for Environmental Monitoring.</p>
+        </div>
+        
+        <div class="card-base">
+            <h3 class="card-title"><i data-lucide="bar-chart-4"></i> More Diagrams</h3>
+            <div class="bg-gray-100 rounded-md p-2 mb-3 overflow-hidden h-32 flex items-center justify-center">
+                <div class="text-center">
+                    <i data-lucide="image-plus" class="w-16 h-16 mx-auto text-gray-400"></i>
+                </div>
+            </div>
+            <p class="card-content text-sm">View more research diagrams and request diagram XML files for adaptation.</p>
+        </div>
+    </div>
+    
+    <div class="mt-6 text-center">
+        <a href="figures.html" class="inline-flex items-center px-4 py-2 bg-indigo-600 text-white font-medium rounded hover:bg-indigo-700 transition duration-150 ease-in-out">
+            <i data-lucide="external-link" class="mr-2"></i> View All Research Figures
+        </a>
+    </div>
+</section>
+        <!-- Talks Section -->
+        <section id="talks" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="presentation"></i> Talks & Conferences
+            </h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> IEEE CCWC 2025 (Big Data)</h3>
+                    <p class="card-content">Delivered findings on "Big Data Optimization Comparison using Apache Spark and Apache Airflow".</p>
+                    <p class="card-footer">Las Vegas, USA, January 2025</p>
+                 </div>
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> IEEE CCWC 2025 (Blockchain)</h3>
+                    <p class="card-content">Showcased research on "Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets".</p>
+                    <p class="card-footer">Las Vegas, USA, January 2025</p>
+                 </div>
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> Int. Conf. Advances in Computing Research</h3>
+                    <p class="card-content">Demonstrated work on "Credit Card Batch Processing in Banking System".</p>
+                    <p class="card-footer">March 2024</p>
+                 </div>
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> IEEE Int. Conf. on Big Data</h3>
+                    <p class="card-content">Introduced methodology for "CARLA Simulator to Train Deep Q Self-Driving Car for Campus Navigation".</p>
+                    <p class="card-footer">Sorrento, Italy, December 2023</p>
+                 </div>
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> IEEE World AI IoT Congress</h3>
+                    <p class="card-content">Discussed innovations in "Scalable Multimodal Machine Learning for Cervical Cancer Detection".</p>
+                    <p class="card-footer">2024</p>
+                 </div>
+                 <div class="card-base talk-card">
+                    <h3 class="card-title"><i data-lucide="mic"></i> ACM Mid-Southeast Conference</h3>
+                    <p class="card-content">Exhibited research on "Merged Blockchain and AI for Improved Healthcare Data Management".</p>
+                    <p class="card-footer">2023</p>
+                 </div>
+             </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center">
+                <i data-lucide="cpu"></i> Technical Skills
+            </h2>
+            <div class="space-y-5">
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-3">Languages:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Python</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> JavaScript</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> C/C++</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> SQL</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Solidity</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> HTML/CSS</span>
+                        <span class="skill-tag bg-indigo-100 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> LaTeX</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-3">Frameworks & Libraries:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> React</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Next.js</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Node.js</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> TensorFlow</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> PyTorch</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> PySpark</span>
+                        <span class="skill-tag bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Apache Airflow</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-3">Cloud & Tools:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> AWS (SageMaker, Lambda, S3, API Gateway)</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Google Cloud</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Alteryx</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Power BI</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> MongoDB</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Firebase</span>
+                        <span class="skill-tag bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Git</span>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-3">Domains:</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Machine Learning</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Computer Vision</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Blockchain</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Data Analytics</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> Federated Learning</span>
+                        <span class="skill-tag bg-purple-100 text-purple-800 text-sm font-medium px-3 py-1 rounded-full inline-flex items-center"><i data-lucide="chevron-right"></i> NLP</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white p-6 md:p-8 rounded-lg shadow-md text-center">
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-6 flex items-center justify-center">
+                <i data-lucide="mail-plus"></i> Get In Touch
+            </h2>
+            <p class="text-gray-700 leading-relaxed mb-6 max-w-lg mx-auto">
+                I'm always open to discussing new projects, research collaborations, or opportunities. Feel free to reach out!
+            </p>
+            <div class="space-y-4">
+                <a href="mailto:spoudel04@gmail.com" class="inline-flex items-center justify-center bg-indigo-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-indigo-700 transition duration-300 ease-in-out w-full sm:w-auto">
+                    <i data-lucide="mail" class="mr-2"></i> Email: spoudel04@gmail.com
+                </a>
+                <p class="text-gray-600 flex items-center justify-center">
+                    <i data-lucide="phone" class="mr-2"></i> Mobile: +1-629-238-6838
+                </p>
+            </div>
+            <div class="mt-8 flex justify-center space-x-6">
+                <a href="#" class="text-gray-500 hover:text-indigo-600" title="LinkedIn (Link not provided)">
+                    <i data-lucide="linkedin" class="w-7 h-7"></i>
+                    <span class="sr-only">LinkedIn</span>
+                </a>
+                <a href="#" class="text-gray-500 hover:text-indigo-600" title="GitHub (Link not provided)">
+                    <i data-lucide="github" class="w-7 h-7"></i>
+                    <span class="sr-only">GitHub</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-6 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            &copy; <span id="current-year"></span> Samir Poudel. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
         // Initialize particles.js
         document.addEventListener('DOMContentLoaded', function() {
             particlesJS('particles-js', {
@@ -1026,23 +1025,20 @@
                         }
                     },
                     "color": {
-                        "value": "#a78bfa" /* Light purple for visibility against dark background */
+                        "value": "#6366f1"
                     },
                     "shape": {
-                        "type": "circle",
+                        "type": ["circle", "triangle"],
                         "stroke": {
                             "width": 0,
                             "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
                         }
                     },
                     "opacity": {
-                        "value": 0.5,
-                        "random": false,
+                        "value": 0.3,
+                        "random": true,
                         "anim": {
-                            "enable": false,
+                            "enable": true,
                             "speed": 1,
                             "opacity_min": 0.1,
                             "sync": false
@@ -1061,20 +1057,20 @@
                     "line_linked": {
                         "enable": true,
                         "distance": 150,
-                        "color": "#c4b5fd", /* Lighter purple for lines */
-                        "opacity": 0.4,
+                        "color": "#6366f1",
+                        "opacity": 0.2,
                         "width": 1
                     },
                     "move": {
                         "enable": true,
                         "speed": 2,
                         "direction": "none",
-                        "random": false,
+                        "random": true,
                         "straight": false,
                         "out_mode": "out",
                         "bounce": false,
                         "attract": {
-                            "enable": false,
+                            "enable": true,
                             "rotateX": 600,
                             "rotateY": 1200
                         }
@@ -1097,31 +1093,17 @@
                         "grab": {
                             "distance": 140,
                             "line_linked": {
-                                "opacity": 1
+                                "opacity": 0.4
                             }
-                        },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
                         },
                         "push": {
                             "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
                         }
                     }
                 },
                 "retina_detect": true
             });
-
+            
             // Initialize Lucide icons
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
@@ -1179,7 +1161,5 @@
         }, 100);
       });
     </script>
-
 </body>
-
 </html>
