@@ -428,15 +428,86 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
         }
 
         .publication-title a {
             color: inherit;
             text-decoration: none;
+            flex: 1;
         }
 
         .publication-title a:hover {
             color: #667eea;
+        }
+
+        .pdf-link {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            color: #667eea !important;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .pdf-link:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-1px);
+        }
+
+        /* Figures Section Styles */
+        .figure-card {
+            position: relative;
+        }
+
+        .figure-preview {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 1.5rem;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .figure-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .figure-card:hover .figure-preview img {
+            transform: scale(1.05);
+        }
+
+        .figure-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        .figure-placeholder i {
+            width: 3rem;
+            height: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .figure-placeholder span {
+            font-size: 0.875rem;
+            font-weight: 500;
         }
 
         .publication-venue {
@@ -771,8 +842,31 @@
                         <a href="https://doi.org/10.1109/AIIoT65859.2025.11105254" target="_blank">
                             Privacy Meets Conservation: Federated Learning's Revolution in Deforestation Detection
                         </a>
+                        <a href="publications/14.pdf" class="pdf-link" download>PDF</a>
                     </div>
                     <div class="publication-venue">2025 IEEE World AI IoT Congress (AIIoT)</div>
+                    <div class="publication-citations">Latest Work</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1109/CCWC56545.2025.10638301" target="_blank">
+                            A Big Data Optimization Comparison using Apache Spark and Apache Airflow
+                        </a>
+                        <a href="publications/1.pdf" class="pdf-link" download>PDF</a>
+                    </div>
+                    <div class="publication-venue">2025 IEEE 15th Annual Computing and Communication Workshop</div>
+                    <div class="publication-citations">Latest Work</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1109/CCWC56545.2025.10638302" target="_blank">
+                            Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets
+                        </a>
+                        <a href="publications/2.pdf" class="pdf-link" download>PDF</a>
+                    </div>
+                    <div class="publication-venue">2025 IEEE 15th Annual Computing and Communication Workshop</div>
                     <div class="publication-citations">Latest Work</div>
                 </div>
                 
@@ -781,9 +875,98 @@
                         <a href="https://doi.org/10.1109/BCCA59294.2024.10639203" target="_blank">
                             VulnFusion: Exploiting Multimodal Representations for Advanced Smart Contract Vulnerability Detection
                         </a>
+                        <a href="publications/3.pdf" class="pdf-link" download>PDF</a>
                     </div>
-                    <div class="publication-venue">2024 IEEE BCCA</div>
+                    <div class="publication-venue">2024 6th International Conference on Blockchain Computing and Applications</div>
                     <div class="publication-citations">1 Citation</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1109/icccn61486.2024.10637655" target="_blank">
+                            QuadraCode AI: Smart Contract Vulnerability Detection with Multimodal Representation
+                        </a>
+                        <a href="publications/4.pdf" class="pdf-link" download>PDF</a>
+                    </div>
+                    <div class="publication-venue">2024 33rd International Conference on Computer Communications and Networks</div>
+                    <div class="publication-citations">2 Citations</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1109/intcec61833.2024.10602865" target="_blank">
+                            Personalized stress detection from chest-worn sensors by leveraging machine learning
+                        </a>
+                        <a href="publications/5.pdf" class="pdf-link" download>PDF</a>
+                    </div>
+                    <div class="publication-venue">2024 INTCEC</div>
+                    <div class="publication-citations">1 Citation</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1109/AIIoT56868.2024.10639887" target="_blank">
+                            Scalable Multimodal Machine Learning for Cervical Cancer Detection
+                        </a>
+                        <a href="publications/6.pdf" class="pdf-link" download>PDF</a>
+                    </div>
+                    <div class="publication-venue">2024 IEEE World AI IoT Congress</div>
+                    <div class="publication-citations">1 Citation</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1007/978-981-99-5316-7_8" target="_blank">
+                            Credit Card Batch Processing in Banking System
+                        </a>
+                        <a href="publications/7.pdf" class="pdf-link" download>PDF</a>
+                    </div>
+                    <div class="publication-venue">International Conference on Advances in Computing Research</div>
+                    <div class="publication-citations">3 Citations</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1109/BigData59044.2023.10386952" target="_blank">
+                            Using the CARLA simulator to train a deep Q self-driving car to control a real-world counterpart on a college campus
+                        </a>
+                        <a href="publications/8.pdf" class="pdf-link" download>PDF</a>
+                    </div>
+                    <div class="publication-venue">2023 IEEE International Conference on Big Data</div>
+                    <div class="publication-citations">4 Citations</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1109/SPMB56733.2023.10409242" target="_blank">
+                            Mental workload classification from fNIRS signals by leveraging machine learning
+                        </a>
+                        <a href="publications/9.pdf" class="pdf-link" download>PDF</a>
+                    </div>
+                    <div class="publication-venue">2023 IEEE Signal Processing in Medicine and Biology Symposium</div>
+                    <div class="publication-citations">10 Citations</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1109/SPMB56733.2023.10409236" target="_blank">
+                            Improved classification of Alzheimer's disease with convolutional neural networks
+                        </a>
+                        <a href="publications/10.pdf" class="pdf-link" download>PDF</a>
+                    </div>
+                    <div class="publication-venue">2023 IEEE Signal Processing in Medicine and Biology Symposium</div>
+                    <div class="publication-citations">6 Citations</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1057/s41270-023-00239-1" target="_blank">
+                            Cryptocurrency price and volatility predictions with machine learning
+                        </a>
+                        <a href="publications/11.pdf" class="pdf-link" download>PDF</a>
+                    </div>
+                    <div class="publication-venue">Journal of Marketing Analytics</div>
+                    <div class="publication-citations">10 Citations</div>
                 </div>
                 
                 <div class="publication-card fade-in">
@@ -791,6 +974,7 @@
                         <a href="https://doi.org/10.1016/j.mlwa.2023.100483" target="_blank">
                             Minimization of High Computational Cost in Data Preprocessing with MPI4Py
                         </a>
+                        <a href="publications/12.pdf" class="pdf-link" download>PDF</a>
                     </div>
                     <div class="publication-venue">Machine Learning with Applications</div>
                     <div class="publication-citations">12 Citations</div>
@@ -798,12 +982,13 @@
                 
                 <div class="publication-card fade-in">
                     <div class="publication-title">
-                        <a href="https://doi.org/10.1057/s41270-023-00239-1" target="_blank">
-                            Cryptocurrency Price and Volatility Predictions with Machine Learning
+                        <a href="https://doi.org/10.1109/CAI56837.2023.10136551" target="_blank">
+                            Prediction of Length-of-stay at ICU Using Machine Learning based on MIMIC-III Database
                         </a>
+                        <a href="publications/13.pdf" class="pdf-link" download>PDF</a>
                     </div>
-                    <div class="publication-venue">Journal of Marketing Analytics</div>
-                    <div class="publication-citations">10 Citations</div>
+                    <div class="publication-venue">2023 IEEE Conference on Artificial Intelligence</div>
+                    <div class="publication-citations">12 Citations</div>
                 </div>
             </div>
             
@@ -1149,16 +1334,6 @@
                     padding: 2rem 0;
                 }
 
-                .timeline::before {
-                    content: '';
-                    position: absolute;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 2px;
-                    height: 100%;
-                    background: linear-gradient(to bottom, #667eea, #764ba2);
-                }
-
                 .timeline-item {
                     position: relative;
                     margin: 3rem 0;
@@ -1172,6 +1347,36 @@
 
                 .timeline-item:nth-child(even) {
                     flex-direction: row-reverse;
+                }
+
+                .timeline-item::before {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 12px;
+                    height: 12px;
+                    background: var(--primary-gradient);
+                    border-radius: 50%;
+                    border: 3px solid #0f0f0f;
+                    z-index: 2;
+                }
+
+                .timeline-item::after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translateX(-50%);
+                    width: 2px;
+                    height: 100px;
+                    background: linear-gradient(to bottom, #667eea, rgba(102, 126, 234, 0.3));
+                    z-index: 1;
+                }
+
+                .timeline-item:last-child::after {
+                    display: none;
                 }
 
                 .timeline-date {
@@ -1192,6 +1397,7 @@
                     margin: 0 2rem;
                     border-radius: 1rem;
                     border: 1px solid rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(10px);
                 }
 
                 .timeline-content h3 {
@@ -1229,27 +1435,30 @@
                 }
 
                 @media (max-width: 768px) {
-                    .timeline::before {
-                        left: 20px;
+                    .timeline-item::before {
+                        left: 30px;
+                    }
+
+                    .timeline-item::after {
+                        left: 30px;
                     }
 
                     .timeline-item {
                         flex-direction: row !important;
-                        padding-left: 50px;
+                        padding-left: 70px;
                     }
 
                     .timeline-date {
                         position: absolute;
-                        left: -25px;
-                        width: 50px;
-                        height: 50px;
+                        left: 0;
+                        width: 60px;
+                        height: 60px;
                         border-radius: 50%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         font-size: 0.75rem;
-                        writing-mode: vertical-rl;
-                        text-orientation: mixed;
+                        padding: 0.5rem;
                     }
 
                     .timeline-content {
