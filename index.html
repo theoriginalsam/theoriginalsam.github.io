@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samir Poudel - Computational Scientist & ML Researcher</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --neural-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --glow-primary: 0 0 30px rgba(102, 126, 234, 0.3);
+            --glow-accent: 0 0 20px rgba(245, 87, 108, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced Hero Section */
+        .hero-container {
+            position: relative;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, #0f0f0f 50%, #000000 100%);
+            overflow: hidden;
+        }
+
+        .hero-bg-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 75, 162, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+            animation: morphBackground 20s ease-in-out infinite;
+        }
+
+        @keyframes morphBackground {
+            0%, 100% { 
+                background: 
+                    radial-gradient(circle at 20% 80%, rgba(120, 75, 162, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 40%, rgba(79, 172, 254, 0.1) 0%, transparent 50%);
+            }
+            33% { 
+                background: 
+                    radial-gradient(circle at 80% 20%, rgba(120, 75, 162, 0.15) 0%, transparent 60%),
+                    radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.15) 0%, transparent 60%),
+                    radial-gradient(circle at 60% 60%, rgba(79, 172, 254, 0.15) 0%, transparent 60%);
+            }
+            66% { 
+                background: 
+                    radial-gradient(circle at 40% 60%, rgba(120, 75, 162, 0.12) 0%, transparent 55%),
+                    radial-gradient(circle at 60% 40%, rgba(102, 126, 234, 0.12) 0%, transparent 55%),
+                    radial-gradient(circle at 20% 20%, rgba(79, 172, 254, 0.12) 0%, transparent 55%);
+            }
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--neural-gradient);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 8s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100px) translateX(100px) rotate(360deg); opacity: 0; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #667eea 50%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .research-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .metric {
+            text-align: center;
+            animation: fadeInUp 1s ease-out 0.6s backwards;
+        }
+
+        .metric-number {
+            font-size: 2.25rem;
+            font-weight: 800;
+            background: var(--neural-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.8s backwards;
+        }
+
+        .btn-primary {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--glow-primary);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Enhanced Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #667eea;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Enhanced Sections */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-dark {
+            background: #0f0f0f;
+        }
+
+        .section-gradient {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Enhanced Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102, 126, 234, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--primary-gradient);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .card-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+
+        .card-meta {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Publications Grid */
+        .publication-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .publication-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .publication-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .publication-title a:hover {
+            color: #667eea;
+        }
+
+        .publication-venue {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-citations {
+            font-size: 0.75rem;
+            color: rgba(102, 126, 234, 0.8);
+            background: rgba(102, 126, 234, 0.1);
+            padding: 0.25rem 0.5rem;
+            border-radius: 1rem;
+            display: inline-block;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            color: #667eea;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .research-metrics {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animation on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-animation {
+            width: 50px;
+            height: 50px;
+            border: 2px solid rgba(102, 126, 234, 0.3);
+            border-top: 2px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loading">
+        <div class="loading-animation"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-content">
+            <div class="logo">SP</div>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#research" class="nav-link">Research</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-container">
+        <div class="hero-bg-animation"></div>
+        <div class="floating-elements" id="floatingElements"></div>
+        <div id="particles-js"></div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i data-lucide="sparkles"></i>
+                Ph.D. Candidate in Computational Science
+            </div>
+            
+            <h1 class="hero-title">Samir Poudel</h1>
+            
+            <p class="hero-subtitle">
+                Pioneering the future of AI through distributed machine learning, blockchain security, and privacy-preserving technologies.
+            </p>
+            
+            <div class="research-metrics">
+                <div class="metric">
+                    <span class="metric-number">14</span>
+                    <span class="metric-label">Publications</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-number">50+</span>
+                    <span class="metric-label">Citations</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-number">3</span>
+                    <span class="metric-label">Years Research</span>
+                </div>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#research" class="btn-primary">
+                    <i data-lucide="rocket"></i>
+                    Explore Research
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    <i data-lucide="mail"></i>
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    Passionate researcher at the intersection of AI, security, and distributed systems, 
+                    translating cutting-edge theory into practical solutions.
+                </p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i data-lucide="brain"></i>
+                    </div>
+                    <h3 class="card-title">AI Research Focus</h3>
+                    <p class="card-description">
+                        Specializing in federated learning, privacy-preserving ML, and neural network security 
+                        with applications in healthcare, environment monitoring, and blockchain systems.
+                    </p>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i data-lucide="shield"></i>
+                    </div>
+                    <h3 class="card-title">Security & Privacy</h3>
+                    <p class="card-description">
+                        Developing novel frameworks for backdoor detection in distributed ML and 
+                        creating secure smart contract vulnerability detection systems.
+                    </p>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i data-lucide="database"></i>
+                    </div>
+                    <h3 class="card-title">Big Data & Systems</h3>
+                    <p class="card-description">
+                        Expert in Apache Spark, Airflow, and cloud technologies for processing 
+                        large-scale datasets and deploying ML solutions in production.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Highlights -->
+    <section id="research" class="section section-gradient">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Research Highlights</h2>
+                <p class="section-subtitle">
+                    Breakthrough innovations in machine learning security and distributed AI systems
+                </p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i data-lucide="eye-off"></i>
+                    </div>
+                    <h3 class="card-title">Privacy-Preserving Environmental Monitoring</h3>
+                    <p class="card-description">
+                        Developed federated learning framework for deforestation detection using satellite imagery, 
+                        achieving 0.85 IoU while maintaining data privacy across distributed nodes.
+                    </p>
+                    <div class="card-meta">IEEE AIIoT 2025 • Featured Research</div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i data-lucide="bug"></i>
+                    </div>
+                    <h3 class="card-title">VulnFusion & QuadraCode AI</h3>
+                    <p class="card-description">
+                        Created multimodal AI frameworks for smart contract vulnerability detection, 
+                        combining code analysis with graph neural networks for enhanced security.
+                    </p>
+                    <div class="card-meta">IEEE BCCA 2024 • 3+ Citations</div>
+                </div>
+                
+                <div class="card fade-in">
+                    <div class="card-icon">
+                        <i data-lucide="cpu"></i>
+                    </div>
+                    <h3 class="card-title">Big Data Optimization</h3>
+                    <p class="card-description">
+                        Comparative analysis of Apache Spark vs Apache Airflow for large-scale data processing, 
+                        providing performance benchmarks for enterprise ML deployments.
+                    </p>
+                    <div class="card-meta">IEEE CCWC 2025 • Industry Impact</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Selected Publications</h2>
+                <p class="section-subtitle">
+                    Peer-reviewed research contributing to the advancement of AI and security
+                </p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1109/AIIoT65859.2025.11105254" target="_blank">
+                            Privacy Meets Conservation: Federated Learning's Revolution in Deforestation Detection
+                        </a>
+                    </div>
+                    <div class="publication-venue">2025 IEEE World AI IoT Congress (AIIoT)</div>
+                    <div class="publication-citations">Latest Work</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1109/BCCA59294.2024.10639203" target="_blank">
+                            VulnFusion: Exploiting Multimodal Representations for Advanced Smart Contract Vulnerability Detection
+                        </a>
+                    </div>
+                    <div class="publication-venue">2024 IEEE BCCA</div>
+                    <div class="publication-citations">1 Citation</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1016/j.mlwa.2023.100483" target="_blank">
+                            Minimization of High Computational Cost in Data Preprocessing with MPI4Py
+                        </a>
+                    </div>
+                    <div class="publication-venue">Machine Learning with Applications</div>
+                    <div class="publication-citations">12 Citations</div>
+                </div>
+                
+                <div class="publication-card fade-in">
+                    <div class="publication-title">
+                        <a href="https://doi.org/10.1057/s41270-023-00239-1" target="_blank">
+                            Cryptocurrency Price and Volatility Predictions with Machine Learning
+                        </a>
+                    </div>
+                    <div class="publication-venue">Journal of Marketing Analytics</div>
+                    <div class="publication-citations">10 Citations</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" class="btn-primary">
+                    <i data-lucide="book-open"></i>
+                    View All Publications (14)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section section-gradient">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Technical Expertise</h2>
+                <p class="section-subtitle">
+                    Advanced proficiency across the full AI and data science technology stack
+                </p>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3 class="skill-category-title">
+                        <i data-lucide="code"></i>
+                        Programming & Frameworks
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">PySpark</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React/Next.js</span>
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">Solidity</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3 class="skill-category-title">
+                        <i data-lucide="cloud"></i>
+                        Cloud & Infrastructure
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS SageMaker</span>
+                        <span class="skill-tag">Lambda</span>
+                        <span class="skill-tag">S3</span>
+                        <span class="skill-tag">API Gateway</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Apache Airflow</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3 class="skill-category-title">
+                        <i data-lucide="brain-circuit"></i>
+                        AI & Machine Learning
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Federated Learning</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Deep Learning</span>
+                        <span class="skill-tag">Reinforcement Learning</span>
+                        <span class="skill-tag">GANs</span>
+                        <span class="skill-tag">Graph Neural Networks</span>
+                        <span class="skill-tag">MLOps</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category fade-in">
+                    <h3 class="skill-category-title">
+                        <i data-lucide="shield"></i>
+                        Security & Blockchain
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Smart Contracts</span>
+                        <span class="skill-tag">Vulnerability Detection</span>
+                        <span class="skill-tag">Privacy-Preserving ML</span>
+                        <span class="skill-tag">Backdoor Detection</span>
+                        <span class="skill-tag">Cryptography</span>
+                        <span class="skill-tag">Web3</span>
+                        <span class="skill-tag">Cybersecurity</span>
+                        <span class="skill-tag">Secure Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Professional Journey</h2>
+                <p class="section-subtitle">
+                    From data analyst to AI researcher, driving innovation at every step
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2023 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Graduate Research Assistant</h3>
+                        <h4>Middle Tennessee State University</h4>
+                        <p>Leading cutting-edge research in federated learning, blockchain security, and AI applications across healthcare, autonomous vehicles, and environmental monitoring.</p>
+                        <div class="timeline-achievements">
+                            <span class="achievement">14 Publications</span>
+                            <span class="achievement">Multiple IEEE Conferences</span>
+                            <span class="achievement">Research Funding</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item fade-in">
+                    <div class="timeline-date">2018 - 2022</div>
+                    <div class="timeline-content">
+                        <h3>Data Analyst</h3>
+                        <h4>Urja Tech, Nepal</h4>
+                        <p>Architected SQL databases and Tableau dashboards, applying statistical methods and predictive modeling to boost operational efficiency and business forecasting.</p>
+                        <div class="timeline-achievements">
+                            <span class="achievement">Database Architecture</span>
+                            <span class="achievement">Predictive Modeling</span>
+                            <span class="achievement">Business Intelligence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Let's Collaborate</h2>
+                <p class="section-subtitle">
+                    Open to research collaborations, consulting opportunities, and innovative projects
+                </p>
+            </div>
+            
+            <div class="contact-info fade-in">
+                <a href="mailto:spoudel04@gmail.com" class="contact-item">
+                    <i data-lucide="mail"></i>
+                    spoudel04@gmail.com
+                </a>
+                <a href="tel:+16292386838" class="contact-item">
+                    <i data-lucide="phone"></i>
+                    +1 (629) 238-6838
+                </a>
+                <a href="#" class="contact-item">
+                    <i data-lucide="map-pin"></i>
+                    Murfreesboro, TN
+                </a>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;" class="fade-in">
+                <a href="mailto:spoudel04@gmail.com" class="btn-primary">
+                    <i data-lucide="send"></i>
+                    Start a Conversation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section" style="padding: 2rem; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+        <div class="container">
+            <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.875rem;">
+                © <span id="currentYear"></span> Samir Poudel. Advancing AI research for a better tomorrow.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize particles.js with enhanced configuration
+        document.addEventListener('DOMContentLoaded', function() {
+            // Remove loading overlay
+            setTimeout(() => {
+                document.getElementById('loading').style.opacity = '0';
+                setTimeout(() => {
+                    document.getElementById('loading').style.display = 'none';
+                }, 500);
+            }, 1500);
+
+            // Initialize particles.js
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 60,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": ["#667eea", "#764ba2", "#4facfe"]
+                    },
+                    "shape": {
+                        "type": ["circle", "triangle"],
+                        "stroke": {
+                            "width": 0
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.4,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 2,
+                            "size_min": 0.5,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 120,
+                        "color": "#667eea",
+                        "opacity": 0.3,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1.5,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 0.5
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 3
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+
+            // Create floating elements
+            const floatingContainer = document.getElementById('floatingElements');
+            for (let i = 0; i < 20; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.style.left = Math.random() * 100 + '%';
+                element.style.animationDelay = Math.random() * 8 + 's';
+                element.style.animationDuration = (8 + Math.random() * 4) + 's';
+                floatingContainer.appendChild(element);
+            }
+
+            // Initialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Set current year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Add timeline styles
+            const timelineStyles = `
+                .timeline {
+                    position: relative;
+                    max-width: 800px;
+                    margin: 0 auto;
+                    padding: 2rem 0;
+                }
+
+                .timeline::before {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 2px;
+                    height: 100%;
+                    background: linear-gradient(to bottom, #667eea, #764ba2);
+                }
+
+                .timeline-item {
+                    position: relative;
+                    margin: 3rem 0;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .timeline-item:nth-child(odd) {
+                    flex-direction: row;
+                }
+
+                .timeline-item:nth-child(even) {
+                    flex-direction: row-reverse;
+                }
+
+                .timeline-date {
+                    flex: 0 0 150px;
+                    text-align: center;
+                    font-weight: 700;
+                    color: #667eea;
+                    background: rgba(102, 126, 234, 0.1);
+                    padding: 0.5rem 1rem;
+                    border-radius: 2rem;
+                    border: 1px solid rgba(102, 126, 234, 0.3);
+                }
+
+                .timeline-content {
+                    flex: 1;
+                    background: rgba(255, 255, 255, 0.05);
+                    padding: 2rem;
+                    margin: 0 2rem;
+                    border-radius: 1rem;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                }
+
+                .timeline-content h3 {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    color: white;
+                    margin-bottom: 0.5rem;
+                }
+
+                .timeline-content h4 {
+                    font-size: 1rem;
+                    color: #667eea;
+                    margin-bottom: 1rem;
+                }
+
+                .timeline-content p {
+                    color: rgba(255, 255, 255, 0.7);
+                    line-height: 1.6;
+                    margin-bottom: 1rem;
+                }
+
+                .timeline-achievements {
+                    display: flex;
+                    gap: 0.5rem;
+                    flex-wrap: wrap;
+                }
+
+                .achievement {
+                    background: rgba(102, 126, 234, 0.2);
+                    color: #667eea;
+                    padding: 0.25rem 0.75rem;
+                    border-radius: 1rem;
+                    font-size: 0.75rem;
+                    font-weight: 500;
+                }
+
+                @media (max-width: 768px) {
+                    .timeline::before {
+                        left: 20px;
+                    }
+
+                    .timeline-item {
+                        flex-direction: row !important;
+                        padding-left: 50px;
+                    }
+
+                    .timeline-date {
+                        position: absolute;
+                        left: -25px;
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 0.75rem;
+                        writing-mode: vertical-rl;
+                        text-orientation: mixed;
+                    }
+
+                    .timeline-content {
+                        margin: 0;
+                    }
+                }
+            `;
+
+            const style = document.createElement('style');
+            style.textContent = timelineStyles;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
