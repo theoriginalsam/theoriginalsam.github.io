@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samir Poudel - Ph.D. Candidate</title>
+    <title>Samir Poudel - Publications</title>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,17 +15,13 @@
             --text-primary: #111827;
             --text-secondary: #4b5563;
             --text-light: #9ca3af;
-            --accent-color: #2563eb; /* Professional Blue */
+            --accent-color: #2563eb;
             --accent-hover: #1d4ed8;
             --border-color: #e5e7eb;
             --bg-secondary: #f9fafb;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -36,252 +32,109 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Layout */
         .container {
-            max-width: 800px; /* Limits width for optimal reading */
+            max-width: 800px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        section {
-            margin-bottom: 80px;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4 {
-            color: var(--text-primary);
-            font-weight: 600;
-            line-height: 1.3;
-        }
+        header { padding: 40px 0 60px 0; border-bottom: 1px solid var(--border-color); margin-bottom: 60px; }
+        
+        .nav { display: flex; justify-content: flex-end; gap: 24px; margin-bottom: 40px; }
+        .nav a { color: var(--text-secondary); font-size: 0.9rem; font-weight: 500; text-decoration: none; }
+        .nav a:hover { color: var(--text-primary); }
 
         h1 { font-size: 2.5rem; letter-spacing: -0.02em; margin-bottom: 16px; }
-        h2 { font-size: 1.5rem; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color); }
-        h3 { font-size: 1.125rem; margin-bottom: 8px; }
+        h2 { font-size: 1.5rem; margin-bottom: 32px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color); }
         
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 16px;
-        }
-
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        a:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
-        }
-
-        /* Header / Nav */
-        header {
-            padding: 40px 0 60px 0;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: flex-end;
-            gap: 24px;
-            margin-bottom: 60px;
-        }
-
-        .nav a {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .nav a:hover {
-            color: var(--text-primary);
-            text-decoration: none;
-        }
-
-        .hero-text {
-            max-width: 600px;
-        }
-
-        .role {
-            font-size: 1.125rem;
-            color: var(--text-secondary);
-            margin-bottom: 24px;
-            display: block;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.2s;
-        }
-
-        .btn-primary {
-            background-color: var(--text-primary);
-            color: white;
-        }
+        /* Publication Grid */
+        .pub-list { display: grid; gap: 32px; }
         
-        .btn-primary:hover {
-            background-color: black;
-            color: white;
-            text-decoration: none;
-            transform: translateY(-1px);
-        }
-
-        .btn-outline {
-            border: 1px solid var(--border-color);
-            color: var(--text-primary);
-            margin-left: 12px;
-        }
-
-        .btn-outline:hover {
-            border-color: var(--text-primary);
-            text-decoration: none;
-            background: var(--bg-secondary);
-        }
-
-        /* Cards & Lists */
-        .list-grid {
-            display: grid;
-            gap: 32px;
-        }
-
-        .item-card {
-            display: block;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .meta {
-            font-size: 0.875rem;
-            color: var(--text-light);
-            margin-top: 4px;
-        }
-
-        /* Publications specific */
         .pub-item {
-            margin-bottom: 24px;
-        }
-        
-        .pub-title a {
-            color: var(--text-primary);
-            font-weight: 600;
-            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
-        .pub-title a:hover {
-            color: var(--accent-color);
+        .pub-year {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-bottom: 4px;
         }
+
+        .pub-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            line-height: 1.4;
+        }
+
+        .pub-title:hover { color: var(--accent-color); }
 
         .pub-venue {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
             font-style: italic;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
         }
 
-        .tag {
-            display: inline-block;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-left: 8px;
-            vertical-align: middle;
+        .pub-links {
+            margin-top: 8px;
+            font-size: 0.85rem;
         }
 
-        /* Skills */
-        .skills-container {
+        .pub-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pub-links a:hover { text-decoration: underline; }
+
+        /* Figures Section */
+        .figures-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 32px;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 40px;
         }
 
-        .skill-category h4 {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-light);
-            margin-bottom: 12px;
-        }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            font-size: 0.95rem;
-            margin-bottom: 6px;
-            color: var(--text-secondary);
-        }
-
-        /* Timeline */
-        .timeline-item {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-
-        .timeline-date {
-            min-width: 120px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            padding-top: 4px;
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 40px 0;
-            text-align: center;
-            font-size: 0.875rem;
-            color: var(--text-light);
-        }
-
-        /* Figures specific */
         .figure-card {
             border: 1px solid var(--border-color);
             border-radius: 8px;
             overflow: hidden;
-            margin-bottom: 24px;
         }
-        
-        .figure-preview {
+
+        .figure-content {
             background: var(--bg-secondary);
-            height: 200px;
+            min-height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow: hidden;
+            padding: 20px;
         }
-
-        .figure-preview img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.9;
-        }
-
+        
         .figure-caption {
             padding: 16px;
             font-size: 0.9rem;
             color: var(--text-secondary);
             border-top: 1px solid var(--border-color);
+            background: #fff;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.875rem;
         }
 
         @media (max-width: 600px) {
             h1 { font-size: 2rem; }
-            .timeline-item { flex-direction: column; gap: 4px; }
-            .nav { justify-content: center; flex-wrap: wrap; }
+            .nav { justify-content: center; }
         }
     </style>
 </head>
@@ -290,224 +143,189 @@
     <div class="container">
         <header>
             <nav class="nav">
-                <a href="#about">About</a>
-                <a href="#research">Research</a>
+                <a href="index.html">Home</a>
                 <a href="#publications">Publications</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
+                <a href="#figures">Figures</a>
             </nav>
-
-            <div class="hero-text">
-                <h1>Samir Poudel</h1>
-                <span class="role">Ph.D. Candidate in Computational Science</span>
-                <p>
-                    Pioneering the future of AI through distributed machine learning, blockchain security, and privacy-preserving technologies at Middle Tennessee State University.
-                </p>
-                <div style="margin-top: 24px;">
-                    <a href="mailto:spoudel04@gmail.com" class="btn btn-primary">
-                        <i data-lucide="mail" width="18"></i> Get in Touch
-                    </a>
-                    <a href="#publications" class="btn btn-outline">
-                        View Publications
-                    </a>
-                </div>
-            </div>
+            <h1>Complete Publication List</h1>
+            <p style="color: var(--text-secondary); max-width: 600px;">
+                A comprehensive collection of my 14 peer-reviewed papers spanning Federated Learning, Blockchain Security, Big Data Systems, and Applied AI.
+            </p>
         </header>
 
-        <section id="about">
-            <h2>About</h2>
-            <p>
-                I am a passionate researcher at the intersection of AI, security, and distributed systems. My work focuses on translating cutting-edge theory into practical solutions.
-            </p>
-            <p>
-                Currently, I specialize in <strong>Federated Learning</strong>, creating privacy-preserving models for environmental and healthcare applications. Simultaneously, I am developing frameworks for <strong>Smart Contract Security</strong> using multimodal AI to detect vulnerabilities in blockchain systems.
-            </p>
-        </section>
-
-        <section id="research">
-            <h2>Research Highlights</h2>
-            <div class="list-grid">
-                <div class="item-card">
-                    <h3>Privacy-Preserving Environmental Monitoring</h3>
-                    <p>Developed a federated learning framework for deforestation detection using satellite imagery. Achieved 0.85 IoU while maintaining strict data privacy across distributed nodes.</p>
-                </div>
-                <div class="item-card">
-                    <h3>VulnFusion & QuadraCode AI</h3>
-                    <p>Created multimodal AI frameworks for smart contract vulnerability detection, combining code analysis with graph neural networks for enhanced security auditing.</p>
-                </div>
-                <div class="item-card">
-                    <h3>Big Data Systems Optimization</h3>
-                    <p>Conducted comparative analysis of Apache Spark vs Apache Airflow for large-scale data processing to provide performance benchmarks for enterprise ML deployments.</p>
-                </div>
-            </div>
-        </section>
-
         <section id="publications">
-            <h2>Selected Publications</h2>
-            
-            <div class="pub-item">
-                <div class="pub-title">
-                    <a href="https://doi.org/10.1109/AIIoT65859.2025.11105254" target="_blank">Privacy Meets Conservation: Federated Learning's Revolution in Deforestation Detection</a>
-                    <span class="tag">IEEE AIIoT 2025</span>
+            <h2>All Publications (14)</h2>
+            <div class="pub-list">
+                
+                <div class="pub-item">
+                    <span class="pub-year">2025</span>
+                    <a href="#" class="pub-title">Privacy Meets Conservation: Federated Learning's Revolution in Deforestation Detection</a>
+                    <div class="pub-venue">2025 IEEE World AI IoT Congress (AIIoT)</div>
+                    <div class="pub-links">
+                        <a href="publications/14.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
                 </div>
-                <div class="meta">
-                    <a href="publications/14.pdf" download>Download PDF</a>
-                </div>
-            </div>
 
-            <div class="pub-item">
-                <div class="pub-title">
-                    <a href="https://doi.org/10.1109/CCWC56545.2025.10638301" target="_blank">A Big Data Optimization Comparison using Apache Spark and Apache Airflow</a>
-                    <span class="tag">IEEE CCWC 2025</span>
+                <div class="pub-item">
+                    <span class="pub-year">2025</span>
+                    <a href="#" class="pub-title">A Big Data Optimization Comparison using Apache Spark and Apache Airflow</a>
+                    <div class="pub-venue">2025 IEEE 15th Annual Computing and Communication Workshop (CCWC)</div>
+                    <div class="pub-links">
+                        <a href="publications/1.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
                 </div>
-                <div class="meta">
-                    <a href="publications/1.pdf" download>Download PDF</a>
-                </div>
-            </div>
 
-            <div class="pub-item">
-                <div class="pub-title">
-                    <a href="https://doi.org/10.1109/BCCA59294.2024.10639203" target="_blank">VulnFusion: Exploiting Multimodal Representations for Advanced Smart Contract Vulnerability Detection</a>
-                    <span class="tag">IEEE BCCA 2024</span>
+                <div class="pub-item">
+                    <span class="pub-year">2025</span>
+                    <a href="#" class="pub-title">Chain Your Loot: Implementing Blockchain into Gaming Loot Box Markets</a>
+                    <div class="pub-venue">2025 IEEE 15th Annual Computing and Communication Workshop (CCWC)</div>
+                    <div class="pub-links">
+                        <a href="publications/2.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
                 </div>
-                <div class="meta">
-                    <a href="publications/3.pdf" download>Download PDF</a>
-                </div>
-            </div>
 
-            <div class="pub-item">
-                <div class="pub-title">
-                    <a href="https://doi.org/10.1109/icccn61486.2024.10637655" target="_blank">QuadraCode AI: Smart Contract Vulnerability Detection with Multimodal Representation</a>
-                    <span class="tag">ICCCN 2024</span>
+                <div class="pub-item">
+                    <span class="pub-year">2024</span>
+                    <a href="#" class="pub-title">VulnFusion: Exploiting Multimodal Representations for Advanced Smart Contract Vulnerability Detection</a>
+                    <div class="pub-venue">2024 6th International Conference on Blockchain Computing and Applications (BCCA)</div>
+                    <div class="pub-links">
+                        <a href="publications/3.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
                 </div>
-                <div class="meta">
-                    <a href="publications/4.pdf" download>Download PDF</a>
-                </div>
-            </div>
 
-            <div class="pub-item">
-                <div class="pub-title">
-                    <a href="https://doi.org/10.1109/BigData59044.2023.10386952" target="_blank">Using the CARLA simulator to train a deep Q self-driving car</a>
-                    <span class="tag">IEEE Big Data 2023</span>
+                <div class="pub-item">
+                    <span class="pub-year">2024</span>
+                    <a href="#" class="pub-title">QuadraCode AI: Smart Contract Vulnerability Detection with Multimodal Representation</a>
+                    <div class="pub-venue">2024 33rd International Conference on Computer Communications and Networks (ICCCN)</div>
+                    <div class="pub-links">
+                        <a href="publications/4.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
                 </div>
-                <div class="meta">
-                    <a href="publications/8.pdf" download>Download PDF</a>
-                </div>
-            </div>
 
-            <div style="margin-top: 20px;">
-                <a href="#" class="btn btn-outline" style="margin-left: 0; font-size: 0.9rem;">View All 14 Publications</a>
+                <div class="pub-item">
+                    <span class="pub-year">2024</span>
+                    <a href="#" class="pub-title">Scalable Multimodal Machine Learning for Cervical Cancer Detection</a>
+                    <div class="pub-venue">2024 IEEE World AI IoT Congress (AIIoT)</div>
+                    <div class="pub-links">
+                        <a href="publications/6.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <span class="pub-year">2024</span>
+                    <a href="#" class="pub-title">Personalized Stress Detection from Chest-Worn Sensors by Leveraging Machine Learning</a>
+                    <div class="pub-venue">2024 International Conference on Electrical, Computer and Energy Technologies (INTCEC)</div>
+                    <div class="pub-links">
+                        <a href="publications/5.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <span class="pub-year">2023</span>
+                    <a href="#" class="pub-title">Using the CARLA Simulator to Train a Deep Q Self-Driving Car</a>
+                    <div class="pub-venue">2023 IEEE International Conference on Big Data (BigData)</div>
+                    <div class="pub-links">
+                        <a href="publications/8.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <span class="pub-year">2023</span>
+                    <a href="#" class="pub-title">Mental Workload Classification from fNIRS Signals by Leveraging Machine Learning</a>
+                    <div class="pub-venue">2023 IEEE Signal Processing in Medicine and Biology Symposium (SPMB)</div>
+                    <div class="pub-links">
+                        <a href="publications/9.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <span class="pub-year">2023</span>
+                    <a href="#" class="pub-title">Improved Classification of Alzheimer's Disease with Convolutional Neural Networks</a>
+                    <div class="pub-venue">2023 IEEE Signal Processing in Medicine and Biology Symposium (SPMB)</div>
+                    <div class="pub-links">
+                        <a href="publications/10.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <span class="pub-year">2023</span>
+                    <a href="#" class="pub-title">Prediction of Length-of-Stay at ICU Using Machine Learning based on MIMIC-III Database</a>
+                    <div class="pub-venue">2023 IEEE Conference on Artificial Intelligence (CAI)</div>
+                    <div class="pub-links">
+                        <a href="publications/13.pdf">PDF</a> &bull; <a href="#">IEEE Xplore</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <span class="pub-year">2023</span>
+                    <a href="#" class="pub-title">Cryptocurrency Price and Volatility Predictions with Machine Learning</a>
+                    <div class="pub-venue">Journal of Marketing Analytics</div>
+                    <div class="pub-links">
+                        <a href="publications/11.pdf">PDF</a> &bull; <a href="#">Springer</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <span class="pub-year">2023</span>
+                    <a href="#" class="pub-title">Minimization of High Computational Cost in Data Preprocessing with MPI4Py</a>
+                    <div class="pub-venue">Machine Learning with Applications</div>
+                    <div class="pub-links">
+                        <a href="publications/12.pdf">PDF</a> &bull; <a href="#">ScienceDirect</a>
+                    </div>
+                </div>
+
+                <div class="pub-item">
+                    <span class="pub-year">2023</span>
+                    <a href="#" class="pub-title">Credit Card Batch Processing in Banking System</a>
+                    <div class="pub-venue">International Conference on Advances in Computing Research</div>
+                    <div class="pub-links">
+                        <a href="publications/7.pdf">PDF</a> &bull; <a href="#">Springer</a>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <section id="skills">
-            <h2>Technical Expertise</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h4>Core & Frameworks</h4>
-                    <ul class="skill-list">
-                        <li>Python, C/C++</li>
-                        <li>TensorFlow, PyTorch</li>
-                        <li>PySpark</li>
-                        <li>React/Next.js</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Cloud & Data</h4>
-                    <ul class="skill-list">
-                        <li>AWS (SageMaker, Lambda)</li>
-                        <li>Apache Airflow</li>
-                        <li>Docker</li>
-                        <li>MongoDB</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Specialization</h4>
-                    <ul class="skill-list">
-                        <li>Federated Learning</li>
-                        <li>Smart Contract Security</li>
-                        <li>Computer Vision</li>
-                        <li>Graph Neural Networks</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-         <section id="figures">
-            <h2>Research Figures</h2>
-            <p>Visualizations of architectures and frameworks developed during my research.</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+        <section id="figures">
+            <h2>Research Architectures</h2>
+            <div class="figures-grid">
                 <div class="figure-card">
-                    <div class="figure-preview">
-                        <img src="figures/federated-learning-architecture.png" alt="Federated Learning Architecture" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'color:#999\'>Image not found</span>'">
+                    <div class="figure-content">
+                        
                     </div>
                     <div class="figure-caption">
-                        <strong>Federated Learning Architecture</strong><br>
-                        Framework for privacy-preserving environmental monitoring.
+                        <strong>Fig 1. Federated Learning Architecture</strong> - The decentralized framework used in the "Privacy Meets Conservation" paper to train UNet models on distributed satellite data.
                     </div>
                 </div>
 
                 <div class="figure-card">
-                    <div class="figure-preview">
-                        <img src="figures/unetem.png" alt="UNet Architecture" onerror="this.style.display='none'; this.parentNode.innerHTML='<span style=\'color:#999\'>Image not found</span>'">
+                    <div class="figure-content">
+                        
                     </div>
                     <div class="figure-caption">
-                        <strong>Modified U-Net</strong><br>
-                        Segmentation architecture for satellite imagery analysis.
+                        <strong>Fig 2. VulnFusion / QuadraCode AI Model</strong> - Illustration of the multimodal transformer fusing Source Code, Opcode, and Bytecode to detect vulnerabilities.
                     </div>
                 </div>
-            </div>
-            <div style="margin-top: 16px;">
-                 <a href="figures.html" style="font-size: 0.9rem;">View all research diagrams →</a>
-            </div>
-        </section>
-
-        <section>
-            <h2>Experience</h2>
-            <div class="timeline-item">
-                <div class="timeline-date">2023 — Present</div>
-                <div>
-                    <h3>Graduate Research Assistant</h3>
-                    <span style="color: var(--text-secondary);">Middle Tennessee State University</span>
-                    <p style="margin-top: 8px;">Leading research in federated learning and blockchain security. Published 14 papers and presented at multiple IEEE conferences.</p>
+                
+                <div class="figure-card">
+                    <div class="figure-content">
+                         
+                    </div>
+                    <div class="figure-caption">
+                        <strong>Fig 3. Big Data Optimization</strong> - Comparative architecture of Apache Spark and Airflow used for the performance benchmarking study.
+                    </div>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-date">2018 — 2022</div>
-                <div>
-                    <h3>Data Analyst</h3>
-                    <span style="color: var(--text-secondary);">Urja Tech, Nepal</span>
-                    <p style="margin-top: 8px;">Architected SQL databases and Tableau dashboards. Applied statistical modeling to boost operational efficiency.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" style="margin-bottom: 40px;">
-            <h2>Contact</h2>
-            <p>Open to research collaborations and consulting opportunities.</p>
-            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                <a href="mailto:spoudel04@gmail.com" style="display: flex; align-items: center; gap: 6px;">
-                    <i data-lucide="mail" width="16"></i> spoudel04@gmail.com
-                </a>
-                <a href="tel:+16292386838" style="display: flex; align-items: center; gap: 6px;">
-                    <i data-lucide="phone" width="16"></i> +1 (629) 238-6838
-                </a>
-                <span style="display: flex; align-items: center; gap: 6px; color: var(--text-secondary);">
-                    <i data-lucide="map-pin" width="16"></i> Murfreesboro, TN
-                </span>
             </div>
         </section>
 
         <footer>
-            &copy; <span id="year"></span> Samir Poudel.
+            &copy; <span id="year"></span> Samir Poudel. All rights reserved.
         </footer>
     </div>
 
     <script>
-        // Initialize Icons
-        lucide.createIcons();
         document.getElementById('year').textContent = new Date().getFullYear();
+        lucide.createIcons();
     </script>
 </body>
 </html>
